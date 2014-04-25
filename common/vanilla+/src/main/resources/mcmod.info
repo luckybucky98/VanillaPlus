@@ -1,0 +1,16 @@
+[
+{
+  "modid": "vanillaplus",
+  "name": "Vanilla Plus",
+  "description": "We take the things from minecraft that don't get the love they deserve and make them a great aspect to your experience",
+  "version": "0.0.0.3",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["Cricket, PZ77"],
+  "credits": "Pz for all the help and for a lot of the ideas",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
