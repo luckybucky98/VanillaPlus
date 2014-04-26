@@ -11,4 +11,5 @@ Current added features
 -overcooked food/ores
 -ore processing
 
+Things to look for in the future:
 
