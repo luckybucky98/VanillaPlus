@@ -5,15 +5,10 @@ VanillaPlus both enhances current features, and adds new features to vanilla min
 It is recommended that you install NEI(Not Enough Items) to help you use VanillaPlus.
 
 Current added features
-
 -VanillaPlus multiblock furnace
-
 -rock crusher
-
 -campfire
-
 -overcooked food/ores
-
 -ore processing
 
 
