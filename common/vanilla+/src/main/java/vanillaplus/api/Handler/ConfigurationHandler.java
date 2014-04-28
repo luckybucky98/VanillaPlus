@@ -6,7 +6,7 @@ public class ConfigurationHandler {
 		
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
-		
+		config.save();
 	}
 	
 	public void loadItems(){
