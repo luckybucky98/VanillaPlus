@@ -1,4 +1,4 @@
-package q;
+package com.cricket.vanillaplus.api.Handlers:
 
 public class ConfigurationHandler {
 	
