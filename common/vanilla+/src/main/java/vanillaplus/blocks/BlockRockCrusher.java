@@ -33,12 +33,13 @@ public class BlockRockCrusher extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private Icon iconBack;
 	
-	
+	//Constructor this sets the material for the bloock and also the getter and setter of isActive
 	public BlockRockCrusher(int id, boolean isActive) {
 		super(id,Material.rock);
 		this.isActive=isActive;
 	}
 	
+	//This registers the icons that this will use to texture the block
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
@@ -47,6 +48,7 @@ public class BlockRockCrusher extends BlockContainer {
 		this.iconBack=iconRegister.registerIcon("vanillaplus:BlockRockCrusherBack");
 	}
 	
+	//The getter for icons
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int metadata){
 		
@@ -54,15 +56,18 @@ public class BlockRockCrusher extends BlockContainer {
 		return side==1?this.blockIcon:(side==0?this.blockIcon:(side!=metadata?this.blockIcon:this.iconFront));
 	}
 	
+	//This gets the id of the block so it drops the right one
 	public int idDropped(int par1, Random random, int par3){
 		return VanillaPlus.BlockRockCrusherIdle.blockID;
 	}
 	
+	//When you place the block it will get the correct direction
 	public void onBlockAdded(World world, int x, int y, int z){
 		super.onBlockAdded(world, x, y, z);
 		this.setDefaultDirection(world,x,y,z);
 	}
 	
+	//this sets the default direction based on algorithim
 	private void setDefaultDirection(World world, int x, int y, int z){
 		if(!world.isRemote){
 			int l = world.getBlockId(x, y, z-1);
@@ -90,12 +95,13 @@ public class BlockRockCrusher extends BlockContainer {
 		
 	}
 	
+	//Creating a new tile entity
 	@Override
 	public TileEntity createNewTileEntity(World world) {
 		
 		return new TileEntityRockCrusher();
 	}
-	
+	//Get where its placed
 	public void onBlockPlacedby(World world, int x, int y, int z, EntityLivingBase entitiyLivingBase, ItemStack itemStack){
 		int l=MathHelper.floor_double((double)(entitiyLivingBase.rotationYaw*4.0F/360.0F)+0.5D)&3;
 		if(l==0){
@@ -114,6 +120,7 @@ public class BlockRockCrusher extends BlockContainer {
 			((TileEntityRockCrusher) world.getBlockTileEntity(x, y, z)).setGuiDisplayName(itemStack.getDisplayName());
 		}
 	}
+	//Checks if this is client side and loads the GUI
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitx, float hity, float hitz){
 		if(!world.isRemote){
