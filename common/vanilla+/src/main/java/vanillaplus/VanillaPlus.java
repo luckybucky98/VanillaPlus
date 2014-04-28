@@ -10,6 +10,8 @@ import com.cricket.vanillaplus.creativetab.CreativeTab;
 import com.cricket.vanillaplus.gui.GuiHandler;
 import com.cricket.vanillaplus.items.ItemPebble;
 import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
+import com.cricket.vanillaplus.api.Registry;
+import com.cricket.vanillaplus.api.Handlers.ConfigurationHandler;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -51,18 +53,13 @@ public class VanillaPlus {
 	
 	@EventHandler
 	private void preInit(FMLPreInitializationEvent event){
-		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-		config.load();
-		//Items
-		ItemPebbleid = config.get("Item IDs", "ItemPebble ID", 600).getInt();
+		ConfigurationHandler.load();
 		ItemPebble = new ItemPebble(ItemPebbleid).setCreativeTab(CreativeTab.VANILLAPLUS_TAB);
 		
 		//Blocks
 		
 		BlockRockCrusherIdle = new BlockRockCrusher(1002,false).setUnlocalizedName("rockCrusherIdle").setHardness(3.5F).setCreativeTab(CreativeTab.VANILLAPLUS_TAB);
 		BlockRockCrusherActive = new BlockRockCrusher(1003,true).setUnlocalizedName("rockCrusherActive").setHardness(3.5F).setLightValue(0.9F);
-		config.save();
-		
 	}
 	
 	@EventHandler
