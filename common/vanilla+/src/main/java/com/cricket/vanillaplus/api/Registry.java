@@ -1,4 +1,14 @@
-package com.cricket.vanillaplus;
+package com.cricket.vanillaplus.api;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+
+import com.cricket.vanillaplus.api.handlers.GuiHandler;
+import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Registry {
 	
@@ -9,8 +19,7 @@ public class Registry {
 	
 	public static Item ItemPebble;
 	
-	int BlockRockCrusherid;
-	int ItemPebbleid;
+	public static int ItemPebbleid;
 	
 	
 	public static void game(){
@@ -43,5 +52,11 @@ public class Registry {
 	}
 	public static void GUI(){
 		GuiHandler guiHandler = new GuiHandler();
+	}
+	public static void load(){
+		game();
+		language();
+		network();
+		GUI();
 	}
 }

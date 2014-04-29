@@ -14,7 +14,7 @@ public class CreativeTab {
 		
 		@Override
 		public Item getTabIconItem(){
-			return Registry.ItemPebble;
+			return Item.bakedPotato;
 		}
 		
 		@Override
