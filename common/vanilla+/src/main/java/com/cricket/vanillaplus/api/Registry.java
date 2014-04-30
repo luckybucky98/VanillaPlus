@@ -18,8 +18,10 @@ public class Registry {
 	public static Block BlockRockCrusherActive;
 	
 	public static Item ItemPebble;
+	public static Item ItemBiomeCompass;
 	
 	public static int ItemPebbleid;
+	public static int ItemBiomeCompassid;
 	
 	
 	public static void game(){
@@ -40,6 +42,7 @@ public class Registry {
 	}
 	public static void items(){
 		GameRegistry.registerItem(ItemPebble,"Pebble");
+		GameRegistry.registerItem(ItemBiomeCompass, "Biome Compass");
 	}
 	public static void tiles(){
 		GameRegistry.registerTileEntity(TileEntityRockCrusher.class, "RockCrusher");
@@ -49,6 +52,7 @@ public class Registry {
 	}
 	public static void languageItems(){
 		LanguageRegistry.addName(ItemPebble, "Pebble");
+		LanguageRegistry.addName(ItemBiomeCompass, "Biome Compass");
 	}
 	public static void GUI(){
 		GuiHandler guiHandler = new GuiHandler();
