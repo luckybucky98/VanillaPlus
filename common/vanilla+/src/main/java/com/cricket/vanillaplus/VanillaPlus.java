@@ -28,9 +28,11 @@ public class VanillaPlus {
 	
 	@EventHandler
 	private void preInit(FMLPreInitializationEvent event){
+		System.out.println("[VanillaPlus] Starting Pre-Initialization");
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
-		Registry.ItemPebbleid = config.get("Item IDs", "Pebble", 600).getInt();
+		Registry.ItemPebbleid = config.get("Item ID's", "Pebble", 600).getInt();
+		Registy.ItemBiomeCompassid = config.get("Item ID's", "Biome Compass", 601).getInt();
 		
 		config.save();
 		
