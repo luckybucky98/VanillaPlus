@@ -16,12 +16,13 @@ public class Registry {
 	
 	public static Block BlockRockCrusherIdle;
 	public static Block BlockRockCrusherActive;
+	public static Block BlockWood;
 	
 	public static Item ItemPebble;
-	public static Item ItemBiomeCompass;
+	
+	public static int BlockWoodID;
 	
 	public static int ItemPebbleid;
-	public static int ItemBiomeCompassid;
 	
 	
 	public static void game(){
@@ -39,20 +40,20 @@ public class Registry {
 	public static void blocks(){
 		GameRegistry.registerBlock(BlockRockCrusherIdle, ItemBlock.class,"RockCrusherIdle");
 		GameRegistry.registerBlock(BlockRockCrusherActive, ItemBlock.class,"RockCrusherActive");
+		GameRegistry.registerBlock(BlockWood, ItemBlock.class, "Wood");
 	}
 	public static void items(){
 		GameRegistry.registerItem(ItemPebble,"Pebble");
-		GameRegistry.registerItem(ItemBiomeCompass, "Biome Compass");
 	}
 	public static void tiles(){
 		GameRegistry.registerTileEntity(TileEntityRockCrusher.class, "RockCrusher");
 	}
 	public static void languageBlocks(){
 		LanguageRegistry.addName(BlockRockCrusherIdle, "Rock Crusher");
+		LanguageRegistry.addName(BlockWood, "Wood");
 	}
 	public static void languageItems(){
 		LanguageRegistry.addName(ItemPebble, "Pebble");
-		LanguageRegistry.addName(ItemBiomeCompass, "Biome Compass");
 	}
 	public static void GUI(){
 		GuiHandler guiHandler = new GuiHandler();

@@ -1,6 +1,5 @@
 package com.cricket.vanillaplus.tiles;
 
-import com.cricket.vanillaplus.RockCrusherRecipes;
 import com.cricket.vanillaplus.blocks.BlockRockCrusher;
 
 import net.minecraft.block.Block;
@@ -13,6 +12,7 @@ import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntity;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -49,32 +49,54 @@ public class TileEntityRockCrusher extends TileEntity implements ISidedInventory
 
 	@Override
 	public ItemStack getStackInSlot(int i) {
-		return null;
+		return this.slots[i];
 	}
 
 	@Override
 	public ItemStack decrStackSize(int i, int j) {
+		if(this.slots[i]!=null){
+			ItemStack itemstack;
+			if(this.slots[i].stackSize<=j){
+				itemstack=this.slots[i];
+				this.slots[i]=null;
+				return itemstack;
+			}else{
+				itemstack=this.slots[i].splitStack(j);
+				if(this.slots[i].stackSize==0){
+					this.slots[i]=null;
+				}
+				return itemstack;
+			}
+		}
 		return null;
 	}
 
 	@Override
 	public ItemStack getStackInSlotOnClosing(int i) {
+		if(this.slots[i]!=null){
+			ItemStack itemstack=this.slots[i];
+			this.slots[i]=null;
+			return itemstack;
+		}
 		return null;
 	}
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemstack) {
-		
+		this.slots[i]=itemstack;
+		if(itemstack!=null && itemstack.stackSize>this.getInventoryStackLimit()){
+			itemstack.stackSize=this.getInventoryStackLimit();
+		}
 	}
 
 	@Override
 	public int getInventoryStackLimit() {
-		return 0;
+		return 64;
 	}
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
-		return false;
+		return this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord)!=this ? false : entityplayer.getDistanceSq((double)this.xCoord+0.5D, (double)this.yCoord+0.5D, (double)this.zCoord+0.5D)<=64.0D;
 	}
 
 	@Override
@@ -95,14 +117,32 @@ public class TileEntityRockCrusher extends TileEntity implements ISidedInventory
 		if(this.slots[0] == null){
 			return false;
 		}else{
-			ItemStack itemstack = RockCrusherRecipes.grinding().getGrindingResult(this.slots[0]);
+			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
 			
 			if(itemstack == null) return false;
 			if(this.slots[2] == null) return true;
 			if(!this.slots[2].isItemEqual(itemstack)) return false;
+			
+			int result = this.slots[2].stackSize+itemstack.stackSize;
+			
+			return (result<=getInventoryStackLimit()&&result<=itemstack.getMaxStackSize());
 		}
 	}
-	
+	private void grindItem(){
+		if(this.canGrind()){
+			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
+			if(this.slots[2]==null){
+				this.slots[2]=itemstack.copy();
+			}else if(this.slots[2].isItemEqual(itemstack)){
+				this.slots[2].stackSize+=itemstack.stackSize;
+			}
+			this.slots[0].stackSize--;
+			
+			if(this.slots[0].stackSize<=0){
+				this.slots[0]=null;
+			}
+		}
+	}
 	public void updateEntity(){
 		boolean flag = this.burnTime >0;
 		boolean flag1 = false;

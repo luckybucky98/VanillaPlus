@@ -8,6 +8,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
@@ -123,8 +125,31 @@ public class BlockRockCrusher extends BlockContainer {
 		return true;
 	}
 
-	public static void updateRockCrusherBlockState(boolean b, World worldObj, int xCoord, int yCoord, int zCoord) {
+	public static void updateRockCrusherBlockState(boolean active, World worldObj, int xCoord, int yCoord, int zCoord) {
+		int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+		TileEntity tileentity = worldObj.getBlockTileEntity(xCoord, yCoord, zCoord);
+		keepInventory=true;
+		if(active){
+			worldObj.setBlock(xCoord, yCoord, zCoord, Registry.BlockRockCrusherActive.blockID);
+		}else{
+			worldObj.setBlock(xCoord, yCoord, zCoord, Registry.BlockRockCrusherIdle.blockID);
+		}
+		keepInventory=false;
+		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 1, 2);
 		
+		if(tileentity!=null){
+			tileentity.validate();
+			worldObj.setBlockTileEntity(xCoord, yCoord, zCoord, tileentity);
+		}
+	}
+	public boolean hasComparatorInputOverride(){
+		return true;
+	}
+	public int getComparatorInputOverride(World world, int x, int y, int z, int i){
+		return Container.calcRedstoneFromInventory((IInventory) world.getBlockTileEntity(x, y, z));
+	}
+	public int idPicked(World world, int x, int y, int z){
+		return Registry.BlockRockCrusherIdle.blockID;
 	}
 }
 

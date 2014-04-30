@@ -1,11 +1,15 @@
 package com.cricket.vanillaplus.gui;
 
+import org.lwjgl.opengl.GL11;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 
 import com.cricket.vanillaplus.Reference;
+import com.cricket.vanillaplus.containers.ContainerRockCrusher;
 import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
 
 public class GuiRockCrusher extends GuiContainer{
@@ -27,6 +31,8 @@ public class GuiRockCrusher extends GuiContainer{
 		this.fontRenderer.drawString(I18n.getString("container.inventory"), 8, this.ySize-96 + 2,4210752);
 	}
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j){
-		
+		GL11.glColor4f(1F, 1F, 1F, 1F);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
+		drawTexturedModalRect(guiLeft,guiTop,0,0,xSize, ySize);
 	}
 }
