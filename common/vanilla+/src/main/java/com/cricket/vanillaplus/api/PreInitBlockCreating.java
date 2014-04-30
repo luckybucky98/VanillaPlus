@@ -1,7 +1,6 @@
 package com.cricket.vanillaplus.api;
 
 import com.cricket.vanillaplus.blocks.BlockRockCrusher;
-import com.cricket.vanillaplus.blocks.BlockWood;
 import com.cricket.vanillaplus.creativetab.CreativeTab;
 import com.cricket.vanillaplus.items.ItemPebble;
 
