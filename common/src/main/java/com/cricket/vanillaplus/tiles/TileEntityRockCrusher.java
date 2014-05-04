@@ -1,7 +1,5 @@
 package com.cricket.vanillaplus.tiles;
 
-import com.cricket.vanillaplus.blocks.BlockRockCrusher;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +11,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+
+import com.cricket.vanillaplus.blocks.BlockRockCrusher;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TileEntityRockCrusher extends TileEntity implements ISidedInventory{
@@ -243,6 +245,24 @@ public class TileEntityRockCrusher extends TileEntity implements ISidedInventory
 	@Override
 	public boolean canExtractItem(int i, ItemStack itemstack, int j) {
 		return j!=0 || i!=1 || itemstack.itemID==Item.bucketEmpty.itemID;
+	}
+
+	public int getBurnTimeRemainingScaled(int i) {
+		if(this.currenttItemGrindingTime==0){
+			this.currenttItemGrindingTime=this.crusherSpeed;
+		}
+		return this.burnTime*i/this.currenttItemGrindingTime;
+	}
+
+	public int getCookProgressScaled(int i) {
+		return this.grindingTime*i/this.crusherSpeed;
+	}
+	
+	public void readFromNBT(NBTTagCompound nbt){
+		
+	}
+	public void writeToNBT(NBTTagCompound nbt){
+		
 	}
 
 }

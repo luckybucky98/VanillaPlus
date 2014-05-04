@@ -68,25 +68,31 @@ public class BlockRockCrusher extends BlockContainer {
 	
 	private void setDefaultDirection(World world, int x, int y, int z){
 		if(!world.isRemote){
-			int c = world.getBlockId(x,y,z-1);
-			int d = world.getBlockId(x,y,z+1);
-			int e = world.getBlockId(x-1,y,z);
-			int f = world.getBlockId(x+1,y,z);
-			byte g = 3;
-			if(Block.opaqueCubeLookup[c] && !Block.opaqueCubeLookup[d]){
-				g=3;
+			int l = world.getBlockId(x, y, z - 1);
+			int il = world.getBlockId(x, y, z + 1);
+			int jl = world.getBlockId(x - 1, y, z);
+			int kl = world.getBlockId(x + 1, y, z);
+			byte b0 = 3;
+			
+			if(Block.opaqueCubeLookup[l] && !Block.opaqueCubeLookup[il]){
+				b0 = 3;
 			}
-			if(Block.opaqueCubeLookup[d] && !Block.opaqueCubeLookup[c]){
-				g=2;
+			
+			if(Block.opaqueCubeLookup[il] && !Block.opaqueCubeLookup[l]){
+				b0 = 2;
 			}
-			if(Block.opaqueCubeLookup[e] && !Block.opaqueCubeLookup[f]){
-				g=5;
+			
+			if(Block.opaqueCubeLookup[kl] && !Block.opaqueCubeLookup[jl]){
+				b0 = 5;
 			}
-			if(Block.opaqueCubeLookup[f] && !Block.opaqueCubeLookup[e]){
-				g=4;
+			
+			if(Block.opaqueCubeLookup[jl] && !Block.opaqueCubeLookup[kl]){
+				b0 = 4;
 			}
-			world.setBlockMetadataWithNotify(x,y,z,g,2);
+			
+			world.setBlockMetadataWithNotify(x, y, z, b0, 2);
 		}
+		
 	}
 	
 	@Override
@@ -116,7 +122,7 @@ public class BlockRockCrusher extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitx, float hity, float hitz){
 		if(!world.isRemote){
-			FMLNetworkHandler.openGui(player, VanillaPlus.instance, VanillaPlus.guiIDRockCrusher, world, x, y, z);
+			FMLNetworkHandler.openGui(player, VanillaPlus.instance, Registry.guiIDRockCrusher, world, x, y, z);
 		}
 		return true;
 	}

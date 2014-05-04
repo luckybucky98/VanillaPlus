@@ -4,13 +4,18 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
+import com.cricket.vanillaplus.Reference;
+import com.cricket.vanillaplus.VanillaPlus;
 import com.cricket.vanillaplus.api.handlers.GuiHandler;
 import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
 
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Registry {
+	
 	
 	public static final int guiIDRockCrusher=0;
 	
@@ -33,7 +38,7 @@ public class Registry {
 		languageItems();
 	}
 	public static void network(){
-		
+		NetworkRegistry.instance().registerGuiHandler(BlockRockCrusherIdle, new GuiHandler());
 	}
 	public static void blocks(){
 		GameRegistry.registerBlock(BlockRockCrusherIdle, ItemBlock.class,"RockCrusherIdle");
@@ -51,13 +56,9 @@ public class Registry {
 	public static void languageItems(){
 		LanguageRegistry.addName(ItemPebble, "Pebble");
 	}
-	public static void GUI(){
-		GuiHandler guiHandler = new GuiHandler();
-	}
 	public static void load(){
 		game();
 		language();
 		network();
-		GUI();
 	}
 }

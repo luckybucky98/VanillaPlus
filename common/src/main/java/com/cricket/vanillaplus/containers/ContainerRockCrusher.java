@@ -51,6 +51,21 @@ public class ContainerRockCrusher extends Container{
 	}
 	public void detectAndSendChanges(){
 		super.detectAndSendChanges();
+		for(int i=0;i<this.crafters.size();i++){
+			ICrafting icrafting = (ICrafting) this.crafters.get(i);
+			if(this.lastGrindingTime != this.rockCrusher.grindingTime){
+				icrafting.sendProgressBarUpdate(this, 0, this.rockCrusher.grindingTime);
+			}
+			if(this.lastBurnTime != this.rockCrusher.burnTime){
+				icrafting.sendProgressBarUpdate(this, 1, this.rockCrusher.burnTime);
+			}
+			if(this.lastItemGrindTime != this.rockCrusher.grindingTime){
+				icrafting.sendProgressBarUpdate(this, 2, this.rockCrusher.currenttItemGrindingTime);
+			}
+			this.lastBurnTime=this.rockCrusher.burnTime;
+			this.lastGrindingTime=this.rockCrusher.grindingTime;
+			this.lastItemGrindTime=this.rockCrusher.currenttItemGrindingTime;
+		}
 	}
 	@SideOnly(Side.CLIENT)
 	public void upgradeProgressBar(int slot, int par2){
@@ -60,7 +75,6 @@ public class ContainerRockCrusher extends Container{
 	}
 	public ItemStack transferStackInSlot(EntityPlayer player){
 		return null;
-		
 	}
 
 }

@@ -4,6 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 import com.cricket.vanillaplus.Reference;
+import com.cricket.vanillaplus.api.Registry;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,7 +15,7 @@ public class CreativeTab {
 		
 		@Override
 		public Item getTabIconItem(){
-			return Item.bakedPotato;
+			return Registry.ItemPebble;
 		}
 		
 		@Override
