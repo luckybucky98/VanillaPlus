@@ -3,7 +3,7 @@
   "modid": "vanillaplus",
   "name": "Vanilla Plus",
   "description": "We take the things from minecraft that don't get the love they deserve and make them a great aspect to your experience",
-  "version": "0.0.0.3",
+  "version": "$[version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
