@@ -1,12 +1,13 @@
-package com.vanillaplus.georgecode.blocks;
+package com.cricket.vanillaplus.blocks;
 
-import com.vanillaplus.georgecode.creativetab.CreativeTab;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+
+import com.cricket.vanillaplus.creativetab.CreativeTab;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 
 public class BlockLavaLeaves extends Block{

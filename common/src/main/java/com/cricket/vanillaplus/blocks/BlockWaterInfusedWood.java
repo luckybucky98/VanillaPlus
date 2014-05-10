@@ -1,4 +1,4 @@
-package com.vanillaplus.georgecode.blocks;
+package com.cricket.vanillaplus.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

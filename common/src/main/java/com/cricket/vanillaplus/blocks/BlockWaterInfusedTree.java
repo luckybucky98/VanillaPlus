@@ -1,6 +1,7 @@
-package com.vanillaplus.georgecode.blocks;
+package com.cricket.vanillaplus.blocks;
 
-import com.vanillaplus.georgecode.creativetab.CreativeTab;
+import com.cricket.vanillaplus.creativetab.CreativeTab;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;

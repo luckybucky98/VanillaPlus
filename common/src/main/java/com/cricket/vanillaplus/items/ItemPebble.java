@@ -9,7 +9,7 @@ public class ItemPebble extends Item{
 	
 	public ItemPebble(int id){
 		super(id);
-		maxStackSize=(64);
+		this.maxStackSize=(64);
 	}
 	public void registerIcons(IconRegister reg){
 		this.itemIcon = reg.registerIcon("vanillaplus:ItemPebble");

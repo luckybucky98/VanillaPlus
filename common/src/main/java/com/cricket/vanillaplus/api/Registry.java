@@ -21,11 +21,25 @@ public class Registry {
 	
 	public static Block BlockRockCrusherIdle;
 	public static Block BlockRockCrusherActive;
+	public static Block BlockAdvancedSmelter;
+	public static Block BlockCompressor;
+	public static Block BlockCrystalOre;
+	public static Block BlockLavaInfusedTree;
+	public static Block BlockWaterInfusedTree;
+	public static Block BlockLavaLeaves;
+	public static Block BlockWaterInfusedTreeLeaves;
+	public static Block BlockAdvancedSmelterIdle;
+	public static Block BlockAdvancedSmelterActive;
+	public static Block BlockLavaInfusedWood;
+	public static Block BlockWaterInfusedWood;
 	
 	public static Item ItemPebble;
-	
+	public static Item ItemCompressedCoal;
+	public static Item ItemCompressedDiamond;
 	
 	public static int ItemPebbleid;
+	public static int ItemCompressedCoalid;
+	public static int ItemCompressedDiamondid;
 	
 	
 	public static void game(){
@@ -46,6 +60,7 @@ public class Registry {
 	}
 	public static void items(){
 		GameRegistry.registerItem(ItemPebble,"Pebble");
+		GameRegistry.registerItem(ItemCompressedCoal, "Compressed Coal");
 	}
 	public static void tiles(){
 		GameRegistry.registerTileEntity(TileEntityRockCrusher.class, "RockCrusher");
@@ -55,6 +70,7 @@ public class Registry {
 	}
 	public static void languageItems(){
 		LanguageRegistry.addName(ItemPebble, "Pebble");
+		LanguageRegistry.addName(ItemCompressedCoal, "Compressed Coal");
 	}
 	public static void load(){
 		game();

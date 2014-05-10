@@ -33,6 +33,7 @@ public class VanillaPlus {
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 		Registry.ItemPebbleid = config.get("Item IDs", "Pebble", 600).getInt();
+		Registry.ItemCompressedCoalid = config.get("Item IDs", "Compressed Coal", 601).getInt();
 		
 		config.save();
 		
