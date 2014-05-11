@@ -21,6 +21,7 @@ public class VanillaPlus {
 	
 	//GUI
 	public static final int guiIDRockCrusher=0;
+	public static final int guiIDAdvancedSmelter=1;
 	
 	@Instance(Reference.MODID)
 	public static VanillaPlus instance;
@@ -32,8 +33,22 @@ public class VanillaPlus {
 	private void preInit(FMLPreInitializationEvent event){
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
+		
+		Registry.BlockAdvancedSmelterIdleID = config.get("Block ID's", "Advanced Smelter Off", 700).getInt();
+		Registry.BlockAdvancedSmelterActiveID = config.get("Block ID's", "Advanced Smelter On", 701).getInt();
+		Registry.BlockCompressorID = config.get("Block ID's", "Compressor", 702).getInt();
+		Registry.BlockCrystalOreID = config.get("Block ID's", "Crystal Ore", 703).getInt();
+		Registry.BlockLavaInfusedLeavesID = config.get("Block ID's", "Lava Infused Leaves", 704).getInt();
+		Registry.BlockLavaInfusedTreeID = config.get("Block ID's", "Lava Infused Tree", 705).getInt();
+		Registry.BlockLavaInfusedWoodID = config.get("Block ID's", "Lava Infused Wood", 706).getInt();
+		Registry.BlockWaterInfusedLeavesID = config.get("Block ID's", "Water Infused Leaves", 707).getInt();
+		Registry.BlockWaterInfusedTreeID = config.get("Block ID's", "Water Infused Tree", 708).getInt();
+		Registry.BlockWaterInfusedWoodID = config.get("Block ID's", "Water Infused Wood", 709).getInt();
+		
+		
 		Registry.ItemPebbleid = config.get("Item IDs", "Pebble", 600).getInt();
 		Registry.ItemCompressedCoalid = config.get("Item IDs", "Compressed Coal", 601).getInt();
+		Registry.ItemCompressedDiamondid = config.get("Item ID's", "Compressed Diamond", 602).getInt();
 		
 		config.save();
 		

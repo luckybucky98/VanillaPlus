@@ -10,8 +10,8 @@ import com.cricket.vanillaplus.creativetab.CreativeTab;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockWaterInfusedTreeLeaves extends Block {
-	public BlockWaterInfusedTreeLeaves(int id, Material material) {
+public class BlockWaterInfusedLeaves extends Block {
+	public BlockWaterInfusedLeaves(int id, Material material) {
 		super(id, material);
 		
 		this.setHardness(0.2F);

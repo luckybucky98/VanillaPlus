@@ -19,7 +19,7 @@ public class GuiHandler implements IGuiHandler{
 		TileEntity entity = world.getBlockTileEntity(x, y, z);
 		if(entity !=null){
 			switch(ID){
-			case Registry.guiIDRockCrusher:
+			case VanillaPlus.guiIDRockCrusher:
 				if(entity instanceof TileEntityRockCrusher){
 					return new ContainerRockCrusher(player.inventory,(TileEntityRockCrusher) entity);
 				}
@@ -33,7 +33,7 @@ public class GuiHandler implements IGuiHandler{
 		TileEntity entity = world.getBlockTileEntity(x, y, z);
 		if(entity !=null){
 			switch(ID){
-			case Registry.guiIDRockCrusher:
+			case VanillaPlus.guiIDRockCrusher:
 				if(entity instanceof TileEntityRockCrusher){
 					return new GuiRockCrusher(player.inventory,(TileEntityRockCrusher) entity);
 				}

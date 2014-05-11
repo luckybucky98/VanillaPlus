@@ -25,7 +25,7 @@ public class BlockCrystalOre extends Block{
 	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister){
-		this.blockIcon = iconRegister.registerIcon("vanillaplus:");
+		this.blockIcon = iconRegister.registerIcon("");
 	}
 
 }

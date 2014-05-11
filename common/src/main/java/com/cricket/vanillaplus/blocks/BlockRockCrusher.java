@@ -122,7 +122,7 @@ public class BlockRockCrusher extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitx, float hity, float hitz){
 		if(!world.isRemote){
-			FMLNetworkHandler.openGui(player, VanillaPlus.instance, Registry.guiIDRockCrusher, world, x, y, z);
+			FMLNetworkHandler.openGui(player, VanillaPlus.instance, VanillaPlus.guiIDRockCrusher, world, x, y, z);
 		}
 		return true;
 	}

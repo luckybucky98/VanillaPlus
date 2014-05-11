@@ -10,8 +10,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 
-public class BlockLavaLeaves extends Block{
-	public BlockLavaLeaves(int id, Material material) {
+public class BlockLavaInfusedLeaves extends Block{
+	public BlockLavaInfusedLeaves(int id, Material material) {
 		super(id, material);
 		
 		this.setHardness(0.2F);
