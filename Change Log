@@ -1,7 +1,20 @@
 v0.0.0.1
 RockCrusher is a semi functional block that can be placed in the world I still need to add the gui part and a recipe handler
 
+v0.0.2.0
+RockCrusher works with GUI, It neither updates nor registers it own recipes
+
+v0.0.15.0
+Huge update, added 2 bases for trees world gen will come in 0.1.15.0
+
+v0.0.15.4
+A few bug fixes I found while testing
+
+
 Planned for next release:
-GUI
-crafting recipe with cobblestone
-Stone sticks: these will allow for stronger tools with more durability
+Refreshing GUI for RC, RC is completely functional
+crafting recipe for all machines and items
+World generation for trees and crystal ore (This will be play tested and tweaked for optimal generation)
+Saplings for the trees
+Completed textures for all added blocks
+Renaming of items so that they all do not have the same name
