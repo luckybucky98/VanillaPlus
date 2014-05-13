@@ -1,0 +1,10 @@
+{
+  "developers": {
+    "capeUrl": "http://www.github.com/TheCricket/VanillaPlus/capes/DeveloperCricket.png",
+    "users": [
+      "TheCricket26",
+      "PZev"
+    ]
+  },
+  "GeorgeT364": "http://www.github.com/TheCricket/VanillaPlus/DeveloperCricket.png"
+}
