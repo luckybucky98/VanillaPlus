@@ -53,6 +53,7 @@ public class VanillaPlus {
 		config.save();
 		
 		PreInitBlockCreating.load();
+		proxy.initCapes;
 	}
 	
 	@EventHandler
