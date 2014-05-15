@@ -6,4 +6,7 @@ package com.cricket.vanillaplus.Recipes;
 public class ItemStacks {
 	ItemStack cobbleStack = new ItemStack(Block.cobblestone);
 	ItemStack pebbleStack = new ItemStack(Item.pebble);
+	ItemStack rockCrusherStack = new ItemStack(Block.rockCrusher);
+	ItemStack redstoneStack = new ItemStack(Item.redstone);
+	ItemStack stonePickStack = new ItemStack(Item.stonePick);
 }
