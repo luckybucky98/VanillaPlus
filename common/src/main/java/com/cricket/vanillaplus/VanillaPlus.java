@@ -1,5 +1,8 @@
 package com.cricket.vanillaplus;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraftforge.common.Configuration;
 
 import com.cricket.vanillaplus.api.PreInitBlockCreating;
@@ -18,6 +21,8 @@ import cpw.mods.fml.common.network.NetworkMod;
 @Mod(modid=Reference.MODID, name=Reference.NAME, version=Reference.VERSION)
 @NetworkMod(clientSideRequired=true)
 public class VanillaPlus {
+	
+	public static Map<String, PlayerCapesClient> playersClient = new HashMap<String, PlayerCapesClient>();
 	
 	//GUI
 	public static final int guiIDRockCrusher=0;
@@ -51,18 +56,18 @@ public class VanillaPlus {
 		Registry.ItemCompressedDiamondid = config.get("Item ID's", "Compressed Diamond", 602).getInt();
 		
 		config.save();
-		
+		proxy.preInit(event);
 		PreInitBlockCreating.load();
-		proxy.initCapes;
 	}
 	
 	@EventHandler
 	public void load(FMLInitializationEvent event){
 		Registry.load();
+		proxy.init(event);
 	}
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
-		
+		proxy.postInit(event);
 	}
 
 }
