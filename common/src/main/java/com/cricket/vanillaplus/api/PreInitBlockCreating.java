@@ -16,6 +16,7 @@ import com.cricket.vanillaplus.creativetab.CreativeTab;
 import com.cricket.vanillaplus.items.ItemCompressedCoal;
 import com.cricket.vanillaplus.items.ItemCompressedDiamond;
 import com.cricket.vanillaplus.items.ItemPebble;
+import com.cricket.vanillaplus.items.ItemSpawnEggs;
 
 public class PreInitBlockCreating {
 	public static void load(){

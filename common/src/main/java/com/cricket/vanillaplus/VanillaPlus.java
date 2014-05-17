@@ -3,6 +3,8 @@ package com.cricket.vanillaplus;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.stats.Achievement;
+import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.Configuration;
 
 import com.cricket.vanillaplus.api.PreInitBlockCreating;
@@ -54,6 +56,8 @@ public class VanillaPlus {
 		Registry.ItemPebbleid = config.get("Item IDs", "Pebble", 600).getInt();
 		Registry.ItemCompressedCoalid = config.get("Item IDs", "Compressed Coal", 601).getInt();
 		Registry.ItemCompressedDiamondid = config.get("Item ID's", "Compressed Diamond", 602).getInt();
+		Registry.ItemSpawnUnicornid = config.get("Item ID's", "Spawn Unicorn", 603).getInt();
+		
 		
 		config.save();
 		proxy.preInit(event);
