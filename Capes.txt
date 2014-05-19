@@ -1,1 +1,1 @@
-TheCricket26:https://github.com/TheCricket/VanillaPlus/blob/master/capes/cricketscape.png
+TheCricket26:https://raw.githubusercontent.com/TheCricket/VanillaPlus/master/capes/cricketscape.png
