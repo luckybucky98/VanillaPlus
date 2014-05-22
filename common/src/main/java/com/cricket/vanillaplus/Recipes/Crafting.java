@@ -15,11 +15,17 @@ public class Crafting {
 	ItemStack rockCrusherStack = new ItemStack(Registry.BlockRockCrusherIdle);
 	ItemStack redstoneStack = new ItemStack(Item.redstone);
 	ItemStack stonePickStack = new ItemStack(Item.pickaxeStone);
+	ItemStack waterInfusedLogStack = new ItemStack(Registry.BlockWaterInfusedLog);
+	ItemStack waterInfusedPlanksStack = new ItemStack(Registry.BlockWaterInfusedPlanks);
+	ItemStack lavaInfusedLogStack = new ItemStack(Registry.BlockLavaInfusedLog);
+	ItemStack lavaInfusedPlanksStack = new ItemStack(Registry.BlockLavaInfusedPlanks);
 	
 	
 	public void loadCraftingRecipes(){
-		GameRegistry.addRecipe(pebbleStack, "xx","xx",'x',cobbleStack);
+		GameRegistry.addRecipe(cobbleStack, "xx","xx",'x',pebbleStack);
 		GameRegistry.addRecipe(rockCrusherStack, "xyx","xzx","xxx",'x',cobbleStack,'y',stonePickStack,'z',redstoneStack);
+		GameRegistry.addShapelessRecipe(lavaInfusedPlanksStack, lavaInfusedLogStack);
+		GameRegistry.addShapelessRecipe(waterInfusedPlanksStack, waterInfusedLogStack);
     
 	}
 }

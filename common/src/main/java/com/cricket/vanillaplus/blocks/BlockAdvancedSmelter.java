@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -14,12 +15,14 @@ import com.cricket.vanillaplus.api.Registry;
 import com.cricket.vanillaplus.creativetab.CreativeTab;
 import com.cricket.vanillaplus.tiles.TileEntityAdvancedSmelter;
 
+import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 
 public class BlockAdvancedSmelter extends BlockContainer{
 	private final boolean isActive;
+	private static boolean keepInventory;
 	
 	@SideOnly(Side.CLIENT)
 	private Icon iconFront;
@@ -86,5 +89,30 @@ public class BlockAdvancedSmelter extends BlockContainer{
 	}
 	public TileEntity createNewTileEntity(World world){
 		return new TileEntityAdvancedSmelter();
+	}
+
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitx, float hity, float hitz){
+		if(!world.isRemote){
+			FMLNetworkHandler.openGui(player, VanillaPlus.instance, VanillaPlus.guiIDAdvancedSmelter, world, x, y, z);
+		}
+		return true;
+	}
+	public static void updateAdvancedSmelterBlockState(boolean active, World worldObj, int xCoord, int yCoord, int zCoord) {
+		int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+		TileEntity tileentity = worldObj.getBlockTileEntity(xCoord, yCoord, zCoord);
+		keepInventory=true;
+		if(active){
+			worldObj.setBlock(xCoord, yCoord, zCoord, Registry.BlockRockCrusherActive.blockID);
+		}else{
+			worldObj.setBlock(xCoord, yCoord, zCoord, Registry.BlockRockCrusherIdle.blockID);
+		}
+		keepInventory=false;
+		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 1, 2);
+		
+		if(tileentity!=null){
+			tileentity.validate();
+			worldObj.setBlockTileEntity(xCoord, yCoord, zCoord, tileentity);
+		}
 	}
 }

@@ -5,9 +5,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.cricket.vanillaplus.VanillaPlus;
-import com.cricket.vanillaplus.api.Registry;
+import com.cricket.vanillaplus.containers.ContainerAdvancedSmelter;
 import com.cricket.vanillaplus.containers.ContainerRockCrusher;
 import com.cricket.vanillaplus.gui.GuiRockCrusher;
+import com.cricket.vanillaplus.tiles.TileEntityAdvancedSmelter;
 import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
 
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -23,6 +24,14 @@ public class GuiHandler implements IGuiHandler{
 				if(entity instanceof TileEntityRockCrusher){
 					return new ContainerRockCrusher(player.inventory,(TileEntityRockCrusher) entity);
 				}
+			case VanillaPlus.guiIDAdvancedSmelter:
+				if(entity instanceof TileEntityAdvancedSmelter){
+					return new ContainerAdvancedSmelter(player.inventory,(TileEntityAdvancedSmelter)entity);
+				}
+				
+			case VanillaPlus.guiIDLavaInfusedCraftingTable:
+				
+				
 			}
 		}
 		return null;

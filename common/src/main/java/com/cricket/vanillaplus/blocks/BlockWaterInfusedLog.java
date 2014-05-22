@@ -10,8 +10,8 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 
 
-public class BlockWaterInfusedTree extends Block{
-	public BlockWaterInfusedTree(int id, Material material) {
+public class BlockWaterInfusedLog extends Block{
+	public BlockWaterInfusedLog(int id, Material material) {
 		super(id, material);
 		
 		this.setHardness(1.5F);

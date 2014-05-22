@@ -6,18 +6,15 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 
-public class BlockLavaInfusedWood extends Block{
+public class BlockLavaInfusedCraftingTable extends Block {
 
-	public BlockLavaInfusedWood(int id, Material material) {
+	public BlockLavaInfusedCraftingTable(int id, Material material) {
 		super(id, material);
-		
-		this.setHardness(2F);
+		this.setHardness(2.0F);
 	}
-	
-	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister){
-		this.blockIcon = iconRegister.registerIcon("vanillaplus:BlockLavaInfusedWood");
+		this.blockIcon = iconRegister.registerIcon("vanillaplus:LavaInfusedCraftingTable");
 	}
 
 }

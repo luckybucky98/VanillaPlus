@@ -3,7 +3,8 @@ package com.cricket.vanillaplus.api;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.stats.Achievement;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeDictionary;
 
 import com.cricket.vanillaplus.api.handlers.GuiHandler;
 import com.cricket.vanillaplus.tiles.TileEntityAdvancedSmelter;
@@ -19,25 +20,27 @@ public class Registry {
 	public static Block BlockRockCrusherActive;
 	public static Block BlockCompressor;
 	public static Block BlockCrystalOre;
-	public static Block BlockLavaInfusedTree;
-	public static Block BlockWaterInfusedTree;
+	public static Block BlockLavaInfusedLog;
+	public static Block BlockWaterInfusedLog;
 	public static Block BlockLavaInfusedLeaves;
 	public static Block BlockWaterInfusedLeaves;
 	public static Block BlockAdvancedSmelterIdle;
 	public static Block BlockAdvancedSmelterActive;
-	public static Block BlockLavaInfusedWood;
-	public static Block BlockWaterInfusedWood;
+	public static Block BlockLavaInfusedPlanks;
+	public static Block BlockWaterInfusedPlanks;
+	public static Block BlockLavaInfusedCraftingTable;
 	
 	public static int BlockRockCrusherIdleID;
 	public static int BlockRockCrusherActiveID;
 	public static int BlockCompressorID;
 	public static int BlockCrystalOreID;
 	public static int BlockLavaInfusedLeavesID;
-	public static int BlockLavaInfusedTreeID;
-	public static int BlockLavaInfusedWoodID;
+	public static int BlockLavaInfusedLogID;
+	public static int BlockLavaInfusedPlanksID;
+	public static int BlockLavaInfusedCraftingTableID;
 	public static int BlockWaterInfusedLeavesID;
-	public static int BlockWaterInfusedTreeID;
-	public static int BlockWaterInfusedWoodID;
+	public static int BlockWaterInfusedLogID;
+	public static int BlockWaterInfusedPlanksID;
 	public static int BlockAdvancedSmelterIdleID;
 	public static int BlockAdvancedSmelterActiveID;
 	
@@ -51,20 +54,22 @@ public class Registry {
 	public static int ItemCompressedDiamondid;
 	public static int ItemSpawnUnicornid;
 	
+	public static BiomeGenBase biomeLavaForest;
+	public static BiomeGenBase biomeWaterForest;
 	
-	public static void game(){
+	private static void game(){
 		blocks();
 		items();
 		tiles();
 	}
-	public static void language(){
+	private static void language(){
 		languageBlocks();
 		languageItems();
 	}
-	public static void network(){
+	private static void network(){
 		NetworkRegistry.instance().registerGuiHandler(BlockRockCrusherIdle, new GuiHandler());
 	}
-	public static void blocks(){
+	private static void blocks(){
 		GameRegistry.registerBlock(BlockRockCrusherIdle, ItemBlock.class,"RockCrusherIdle");
 		GameRegistry.registerBlock(BlockRockCrusherActive, ItemBlock.class,"RockCrusherActive");
 		GameRegistry.registerBlock(BlockAdvancedSmelterIdle, ItemBlock.class, "AdvancedSmelterIdle");
@@ -72,40 +77,55 @@ public class Registry {
 		GameRegistry.registerBlock(BlockCompressor, ItemBlock.class, "Compressor");
 		GameRegistry.registerBlock(BlockCrystalOre, ItemBlock.class, "Crystal Ore");
 		GameRegistry.registerBlock(BlockLavaInfusedLeaves, ItemBlock.class, "LavaInfusedLeaves");
-		GameRegistry.registerBlock(BlockLavaInfusedTree, ItemBlock.class, "LavaInfusedTree");
-		GameRegistry.registerBlock(BlockLavaInfusedWood, ItemBlock.class, "LavaInfusedWood");
+		GameRegistry.registerBlock(BlockLavaInfusedLog, ItemBlock.class, "LavaInfusedLog");
+		GameRegistry.registerBlock(BlockLavaInfusedPlanks, ItemBlock.class, "LavaInfusedPlanks");
+		GameRegistry.registerBlock(BlockLavaInfusedCraftingTable, ItemBlock.class, "LavaInfusedCraftingTable");
 		GameRegistry.registerBlock(BlockWaterInfusedLeaves, ItemBlock.class, "WaterInfusedLeaves");
-		GameRegistry.registerBlock(BlockWaterInfusedTree, ItemBlock.class, "WaterInfusedTree");
-		GameRegistry.registerBlock(BlockWaterInfusedWood, ItemBlock.class, "WaterInfusedWood");
+		GameRegistry.registerBlock(BlockWaterInfusedLog, ItemBlock.class, "WaterInfusedLog");
+		GameRegistry.registerBlock(BlockWaterInfusedPlanks, ItemBlock.class, "WaterInfusedPlanks");
 	}
-	public static void items(){
+	private static void items(){
 		GameRegistry.registerItem(ItemPebble,"Pebble");
 		GameRegistry.registerItem(ItemCompressedCoal, "CompressedCoal");
 		GameRegistry.registerItem(ItemCompressedDiamond, "CompressedDiamond");
 	}
-	public static void tiles(){
+	private static void tiles(){
 		GameRegistry.registerTileEntity(TileEntityRockCrusher.class, "RockCrusher");
 		GameRegistry.registerTileEntity(TileEntityAdvancedSmelter.class, "AdvancedSmelter");
 	}
-	public static void languageBlocks(){
+	private static void languageBlocks(){
 		LanguageRegistry.addName(BlockRockCrusherIdle, "Rock Crusher");
 		LanguageRegistry.addName(BlockAdvancedSmelterIdle, "Advanced Smelter");
 		LanguageRegistry.addName(BlockCompressor, "Compressor");
 		LanguageRegistry.addName(BlockCrystalOre, "Crystal Ore");
 		LanguageRegistry.addName(BlockLavaInfusedLeaves, "Lava Infused Leaves");
-		LanguageRegistry.addName(BlockLavaInfusedTree, "Lava Infused Tree");
-		LanguageRegistry.addName(BlockLavaInfusedWood, "Lava Infused Wood");
+		LanguageRegistry.addName(BlockLavaInfusedLog, "Lava Infused Log");
+		LanguageRegistry.addName(BlockLavaInfusedPlanks, "Lava Infused Planks");
+		LanguageRegistry.addName(BlockLavaInfusedCraftingTable, "Lava Infused Crafting Table");
 		LanguageRegistry.addName(BlockWaterInfusedLeaves, "Water Infused Leaves");
-		LanguageRegistry.addName(BlockWaterInfusedTree, "Water Infused Tree");
-		LanguageRegistry.addName(BlockWaterInfusedWood, "Water Infused Wood");
+		LanguageRegistry.addName(BlockWaterInfusedLog, "Water Infused Log");
+		LanguageRegistry.addName(BlockWaterInfusedPlanks, "Water Infused Planks");
 	}
-	public static void languageItems(){
+	private static void languageItems(){
 		LanguageRegistry.addName(ItemPebble, "Pebble");
 		LanguageRegistry.addName(ItemCompressedCoal, "Compressed Coal");
 		LanguageRegistry.addName(ItemCompressedDiamond, "Compressed Diamond");
 	}
+	private static void world(){
+		registerBiomes();
+		addToBiomeDictionary();
+	}
+	private static void addToBiomeDictionary(){
+		BiomeDictionary.registerBiomeType(biomeLavaForest, new BiomeDictionary.Type[] {BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS});
+		BiomeDictionary.registerBiomeType(biomeWaterForest, new BiomeDictionary.Type[] {BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS});
+	}
+	private static void registerBiomes(){
+		GameRegistry.addBiome(biomeLavaForest);
+		GameRegistry.addBiome(biomeWaterForest);
+	}
 	public static void load(){
 		game();
+		world();
 		language();
 		network();
 	}

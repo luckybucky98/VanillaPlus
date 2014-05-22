@@ -11,8 +11,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 
-public class BlockLavaInfusedTree extends Block{
-	public BlockLavaInfusedTree(int id, Material material) {
+public class BlockLavaInfusedLog extends Block{
+	public BlockLavaInfusedLog(int id, Material material) {
 		super(id, material);
 		
 		this.setHardness(1.5F);
