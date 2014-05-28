@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import com.cricket.vanillaplus.blocks.BlockAdvancedSmelter;
 import com.cricket.vanillaplus.blocks.BlockCompressor;
 import com.cricket.vanillaplus.blocks.BlockCrystalOre;
+import com.cricket.vanillaplus.blocks.BlockFurnace;
 import com.cricket.vanillaplus.blocks.BlockLavaInfusedCraftingTable;
 import com.cricket.vanillaplus.blocks.BlockLavaInfusedLeaves;
 import com.cricket.vanillaplus.blocks.BlockLavaInfusedLog;
@@ -17,19 +18,16 @@ import com.cricket.vanillaplus.creativetab.CreativeTab;
 import com.cricket.vanillaplus.items.ItemCompressedCoal;
 import com.cricket.vanillaplus.items.ItemCompressedDiamond;
 import com.cricket.vanillaplus.items.ItemPebble;
-import com.cricket.vanillaplus.worldgen.BiomeGenLavaForest;
-import com.cricket.vanillaplus.worldgen.BiomeGenWaterForest;
 
 public class PreInitBlockCreating {
 	public static void load(){
 		items();
 		blocks();
-		world();
 	}
 	public static void items(){
-		Registry.ItemPebble = new ItemPebble(Registry.ItemPebbleid).setCreativeTab(CreativeTab.VANILLAPLUS_TAB);
-		Registry.ItemCompressedCoal = new ItemCompressedCoal(Registry.ItemCompressedCoalid).setCreativeTab(CreativeTab.VANILLAPLUS_TAB);
-		Registry.ItemCompressedDiamond = new ItemCompressedDiamond(Registry.ItemCompressedDiamondid).setCreativeTab(CreativeTab.VANILLAPLUS_TAB);
+		Registry.ItemPebble = new ItemPebble(Registry.ItemPebbleid).setCreativeTab(CreativeTab.VANILLAPLUS_TAB).setUnlocalizedName("pebble");
+		Registry.ItemCompressedCoal = new ItemCompressedCoal(Registry.ItemCompressedCoalid).setCreativeTab(CreativeTab.VANILLAPLUS_TAB).setUnlocalizedName("compressedCoal");
+		Registry.ItemCompressedDiamond = new ItemCompressedDiamond(Registry.ItemCompressedDiamondid).setCreativeTab(CreativeTab.VANILLAPLUS_TAB).setUnlocalizedName("compressedDiamond");
 	}
 	public static void blocks(){
 		Registry.BlockRockCrusherIdle = new BlockRockCrusher(1001,false).setUnlocalizedName("rockCrusherIdle").setHardness(3.5F).setCreativeTab(CreativeTab.VANILLAPLUS_TAB);
@@ -45,10 +43,6 @@ public class PreInitBlockCreating {
 		Registry.BlockAdvancedSmelterIdle = new BlockAdvancedSmelter(Registry.BlockAdvancedSmelterIdleID,false).setUnlocalizedName("advancedSmelterIdle").setCreativeTab(CreativeTab.VANILLAPLUS_TAB);
 		Registry.BlockAdvancedSmelterActive = new BlockAdvancedSmelter(Registry.BlockAdvancedSmelterActiveID,true).setUnlocalizedName("advancedSmelterActive").setCreativeTab(CreativeTab.VANILLAPLUS_TAB);
 		Registry.BlockLavaInfusedCraftingTable = new BlockLavaInfusedCraftingTable(Registry.BlockLavaInfusedCraftingTableID, Material.wood).setUnlocalizedName("lavaInfusedCraftingTable").setCreativeTab(CreativeTab.VANILLAPLUS_TAB);
-		
-	}
-	public static void world(){
-		Registry.biomeLavaForest = new BiomeGenLavaForest(20).setBiomeName("Lava Forest").setDisableRain();
-		Registry.biomeWaterForest = new BiomeGenWaterForest(21).setBiomeName("Water Forest").setEnableSnow();
+		Registry.BlockFurnace = new BlockFurnace(Registry.BlockFurnaceID, Material.rock).setUnlocalizedName("furnace").setHardness(3.5f).setCreativeTab(CreativeTab.VANILLAPLUS_TAB);
 	}
 }

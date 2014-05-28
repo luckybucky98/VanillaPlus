@@ -52,8 +52,6 @@ public class BlockRockCrusher extends BlockContainer {
 	
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int metadata){
-		
-		
 		return side==1?this.blockIcon:(side==0?this.blockIcon:(side!=metadata?this.blockIcon:this.iconFront));
 	}
 	

@@ -16,6 +16,6 @@ public class BlockWaterInfusedPlanks extends Block{
 	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister){
-		this.blockIcon = iconRegister.registerIcon("vanillaplus:BlockWaterInfusedWood");
+		this.blockIcon = iconRegister.registerIcon("vanillaplus:BlockWaterInfusedPlanks");
 	}
 }

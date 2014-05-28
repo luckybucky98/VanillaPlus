@@ -1,11 +1,8 @@
 package com.cricket.vanillaplus;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
 
+import com.cricket.vanillaplus.Recipes.Crafting;
 import com.cricket.vanillaplus.api.PreInitBlockCreating;
 import com.cricket.vanillaplus.api.Registry;
 import com.cricket.vanillaplus.api.handlers.VPEventHandlers;
@@ -55,7 +52,7 @@ public class VanillaPlus {
 		Registry.BlockWaterInfusedLogID = config.get("Block ID's", "Water Infused Tree", 708).getInt(708);
 		Registry.BlockWaterInfusedPlanksID = config.get("Block ID's", "Water Infused Wood", 709).getInt(709);
 		Registry.BlockLavaInfusedCraftingTableID = config.get("Block ID's", "Lava Infused Crafting Table", 712).getInt(712);
-		
+		Registry.BlockFurnaceID = config.get("Block ID's", "Furnace", 61).getInt(61);
 		
 		Registry.ItemPebbleid = config.get("Item IDs", "Pebble", 600).getInt(600);
 		Registry.ItemCompressedCoalid = config.get("Item IDs", "Compressed Coal", 601).getInt(601);
@@ -66,6 +63,7 @@ public class VanillaPlus {
 		proxy.preInit(event);
 		PreInitBlockCreating.load();
 		VPEventHandlers.init();
+		Crafting.loadCraftingRecipes();
 	}
 	
 	@EventHandler

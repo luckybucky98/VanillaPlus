@@ -29,6 +29,7 @@ public class Registry {
 	public static Block BlockLavaInfusedPlanks;
 	public static Block BlockWaterInfusedPlanks;
 	public static Block BlockLavaInfusedCraftingTable;
+	public static Block BlockFurnace;
 	
 	public static int BlockRockCrusherIdleID;
 	public static int BlockRockCrusherActiveID;
@@ -43,6 +44,7 @@ public class Registry {
 	public static int BlockWaterInfusedPlanksID;
 	public static int BlockAdvancedSmelterIdleID;
 	public static int BlockAdvancedSmelterActiveID;
+	public static int BlockFurnaceID;
 	
 	public static Item ItemPebble;
 	public static Item ItemCompressedCoal;
@@ -53,9 +55,6 @@ public class Registry {
 	public static int ItemCompressedCoalid;
 	public static int ItemCompressedDiamondid;
 	public static int ItemSpawnUnicornid;
-	
-	public static BiomeGenBase biomeLavaForest;
-	public static BiomeGenBase biomeWaterForest;
 	
 	private static void game(){
 		blocks();
@@ -83,6 +82,7 @@ public class Registry {
 		GameRegistry.registerBlock(BlockWaterInfusedLeaves, ItemBlock.class, "WaterInfusedLeaves");
 		GameRegistry.registerBlock(BlockWaterInfusedLog, ItemBlock.class, "WaterInfusedLog");
 		GameRegistry.registerBlock(BlockWaterInfusedPlanks, ItemBlock.class, "WaterInfusedPlanks");
+		GameRegistry.registerBlock(BlockFurnace, ItemBlock.class, "Furnace");
 	}
 	private static void items(){
 		GameRegistry.registerItem(ItemPebble,"Pebble");
@@ -105,27 +105,15 @@ public class Registry {
 		LanguageRegistry.addName(BlockWaterInfusedLeaves, "Water Infused Leaves");
 		LanguageRegistry.addName(BlockWaterInfusedLog, "Water Infused Log");
 		LanguageRegistry.addName(BlockWaterInfusedPlanks, "Water Infused Planks");
+		LanguageRegistry.addName(BlockFurnace, "Furnace");
 	}
 	private static void languageItems(){
 		LanguageRegistry.addName(ItemPebble, "Pebble");
 		LanguageRegistry.addName(ItemCompressedCoal, "Compressed Coal");
 		LanguageRegistry.addName(ItemCompressedDiamond, "Compressed Diamond");
 	}
-	private static void world(){
-		registerBiomes();
-		addToBiomeDictionary();
-	}
-	private static void addToBiomeDictionary(){
-		BiomeDictionary.registerBiomeType(biomeLavaForest, new BiomeDictionary.Type[] {BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS});
-		BiomeDictionary.registerBiomeType(biomeWaterForest, new BiomeDictionary.Type[] {BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS});
-	}
-	private static void registerBiomes(){
-		GameRegistry.addBiome(biomeLavaForest);
-		GameRegistry.addBiome(biomeWaterForest);
-	}
 	public static void load(){
 		game();
-		world();
 		language();
 		network();
 	}
