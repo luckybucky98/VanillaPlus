@@ -15,7 +15,7 @@ import net.minecraft.util.ResourceLocation;
 @SideOnly(Side.CLIENT)
 public class GuiRockCrusher extends GuiContainer{
 	
-	private static final ResourceLocation texture = new ResourceLocation("textures/gui/container/GuiRockCrusher.png");
+	private static final ResourceLocation texture = new ResourceLocation("vanillaplus:/textures/gui/container/GuiRockCrusher.png");
 	private TileEntityRockCrusher tileRockCrusher;
 	
 	public GuiRockCrusher(InventoryPlayer inv, TileEntityRockCrusher crusher) {
