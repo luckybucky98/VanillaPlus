@@ -4,9 +4,10 @@ import net.minecraft.item.Item;
 
 public class ItemCompressedDiamond extends Item{
 
-	public ItemCompressedDiamond(int par1) {
-		super(par1);
+	public ItemCompressedDiamond() {
+		super();
 		this.maxStackSize=64;
+		setTextureName("vanillaplus:ItemCompressedDiamond");
 	}
 
 }

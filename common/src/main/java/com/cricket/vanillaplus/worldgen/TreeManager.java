@@ -28,14 +28,14 @@ public class TreeManager implements IWorldGenerator{
 		                int Ycoord1 = random.nextInt(100); //how high it generates
 		                int Zcoord1 = z + random.nextInt(16); //where in chunk it generates
 		               
-		                new WorldGenLavaTree(false, 8, 0, 0, false).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		                new WorldGenLavaTree().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 		               
 		        }
 		        for(int i = 0; i < 20; ++i){
 		        	int Xcoord1 = x + random.nextInt(16);
 		        	int Ycoord1 = random.nextInt(100);
 		        	int Zcoord1 = z + random.nextInt(16);
-		        	new WorldGenWaterTree(false, 8, 0, 0, false).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		        	new WorldGenWaterTree().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 		        }
 	       
 	}

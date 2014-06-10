@@ -16,11 +16,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class Crafting {
 	
 	public static void loadCraftingRecipes(){
-		GameRegistry.addRecipe(ItemStacks.cobbleStack, "xx","xx",'x',ItemStacks.pebbleStack);
-		GameRegistry.addRecipe(ItemStacks.rockCrusherStack, "xyx","xzx","xxx",'x',ItemStacks.cobbleStack,'y',ItemStacks.stonePickStack,'z',ItemStacks.redstoneStack);
+		//GameRegistry.addRecipe(ItemStacks.cobbleStack, "xx","xx",'x',ItemStacks.pebbleStack);
+		//GameRegistry.addRecipe(ItemStacks.rockCrusherStack, "xyx","xzx","xxx",'x',ItemStacks.cobbleStack,'y',ItemStacks.stonePickStack,'z',ItemStacks.redstoneStack);
 		GameRegistry.addShapelessRecipe(ItemStacks.lavaInfusedPlanksStack, ItemStacks.lavaInfusedLogStack);
 		GameRegistry.addShapelessRecipe(ItemStacks.waterInfusedPlanksStack, ItemStacks.waterInfusedLogStack);
-		GameRegistry.addRecipe(ItemStacks.furnaceStack, "xxx","x x","xxx",'x',ItemStacks.cobbleStack);
+		//GameRegistry.addRecipe(ItemStacks.furnaceStack, "xxx","x x","xxx",'x',ItemStacks.cobbleStack);
 	}
 	
 	public static void replaceRecipe(ItemStack newOutput, Object... input)

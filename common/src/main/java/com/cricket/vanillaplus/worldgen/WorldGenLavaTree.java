@@ -5,139 +5,117 @@ import java.util.Random;
 import com.cricket.vanillaplus.api.Registry;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSapling;
-import net.minecraft.client.Minecraft;
+import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.ForgeDirection;
 
 public class WorldGenLavaTree extends WorldGenerator{
-	/** The minimum height of a generated tree. */
-	private final int minTreeHeight;
-	/** True if this tree should grow Vines. */
-	private final boolean vinesGrow;
-	/** The metadata value of the wood to use in tree generation. */
-	private final int metaWood;
-	/** The metadata value of the leaves to use in tree generation. */
-	private final int metaLeaves;
-	public WorldGenLavaTree(boolean par1)
-	{
-	         this(par1, 8, 0, 0, false);
+	public WorldGenLavaTree(boolean doNotify){
+		super(doNotify);
 	}
-	public WorldGenLavaTree(boolean par1, int par2, int par3, int par4, boolean par5)
-	{
-	         super();
-	         this.minTreeHeight = par2;
-	         this.metaWood = par3;
-	         this.metaLeaves = par4;
-	         this.vinesGrow = par5;
+	
+	public WorldGenLavaTree(){
+		super();
 	}
-	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
-	{
-	         int l = par2Random.nextInt(3) + this.minTreeHeight;
-	         boolean flag = true;
-	         if (par4 >= 1 && par4 + l + 1 <= 256)
-	         {
-	                 int i1;
-	                 byte b0;
-	                 int j1;
-	                 int k1;
-	                 for (i1 = par4; i1 <= par4 + 1 + l; ++i1)
-	                 {
-	                         b0 = 1;
-	                         if (i1 == par4)
-	                         {
-	                                 b0 = 0;
-	                         }
-	                         if (i1 >= par4 + 1 + l - 2)
-	                         {
-	                                 b0 = 2;
-	                         }
-	                         for (int l1 = par3 - b0; l1 <= par3 + b0 && flag; ++l1)
-	                         {
-	                                 for (j1 = par5 - b0; j1 <= par5 + b0 && flag; ++j1)
-	                                 {
-	                                         if (i1 >= 0 && i1 < 256)
-	                                         {
-	                                                 k1 = par1World.getBlockId(l1, i1, j1);
-	                                                 Block block = Block.blocksList[k1];
-	                                                 boolean isAir = par1World.isAirBlock(l1, i1, j1);
-	                                                 if (!isAir &&
-	                                                         !block.isLeaves(par1World, l1, i1, j1) &&
-	                                                         k1 != Block.grass.blockID && //What blocks the tree will generate on
-	                                                         k1 != Block.dirt.blockID &&
-	                                                         !block.isWood(par1World, l1, i1, j1))
-	                                                       
-	                                                 {
-	                                                         flag = false;
-	                                                 }
-	                                         }
-	                                         else
-	                                         {
-	                                                 flag = false;
-	                                         }
-	                                 }
-	                         }
-	                 }
-	                 if (!flag)
-	                 {
-	                         return false;
-	                 }
-	                 else
-	                 {
-	                         i1 = par1World.getBlockId(par3, par4 - 1, par5);
-	                         Block soil = Block.blocksList[i1];
-	                         boolean isSoil = (soil != null && soil.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)Block.sapling));
-	                         if (isSoil && par4 < 256 - l - 1)
-	                         {
-	                                 soil.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
-	                                 b0 = 3;
-	                                 byte b1 = 0;
-	                                 int i2;
-	                                 int j2;
-	                                 int k2;
-	                                 for (j1 = par4 - b0 + l; j1 <= par4 + l; ++j1)
-	                                 {
-	                                         k1 = j1 - (par4 + l);
-	                                         i2 = b1 + 1 - k1 / 2;
-	                                         for (j2 = par3 - i2; j2 <= par3 + i2; ++j2)
-	                                         {
-	                                                 k2 = j2 - par3;
-	                                                 for (int l2 = par5 - i2; l2 <= par5 + i2; ++l2)
-	                                                 {
-	                                                         int i3 = l2 - par5;
-	                                                         if (Math.abs(k2) != i2 || Math.abs(i3) != i2 || par2Random.nextInt(2) != 0 && k1 != 0)
-	                                                         {
-	                                                                 int j3 = par1World.getBlockId(j2, j1, l2);
-	                                                                 Block block = Block.blocksList[j3];
-	                                                                 if (block == null || block.canBeReplacedByLeaves(par1World, j2, j1, l2))
-	                                                                 {
-	                                                                         this.setBlockAndMetadata(par1World, j2, j1, l2, Registry.BlockLavaInfusedLeaves.blockID, this.metaLeaves);
-	                                                                 }
-	                                                         }
-	                                                 }
-	                                         }
-	                                 }
-	                                 for (j1 = 0; j1 < l; ++j1)
-	                                 {
-	                                         k1 = par1World.getBlockId(par3, par4 + j1, par5);
-	                                         Block block = Block.blocksList[k1];
-	                                         if (k1 == 0 || block == null || block.isLeaves(par1World, par3, par4 + j1, par5))
-	                                         {
-	                                                 this.setBlockAndMetadata(par1World, par3, par4 + j1, par5, Registry.BlockLavaInfusedLog.blockID, this.metaWood);
-	                                         }
-	                                 }
-	                                 return true;
-	                         }
-	                         else
-	                         {
-	                                 return false;
-	                         }
-	                 }
-	         }
-	         else
-	         {
-	                 return false;
-	         }
+	
+	@Override
+	public boolean generate(World world, Random rand, int x, int trying, int z){
+		for(int c = 0; c < trying; c++){
+			int y = world.getActualHeight() -1;
+			while(world.isAirBlock(x, y, z) && y > 0){
+				y--;
+			}
+			
+			if(!growTree(world, rand, x, y + 1, z)){
+				trying--;
+			}
+			
+			x += rand.nextInt(16) - 8;
+			z += rand.nextInt(16) - 8;
+		}
+		
+		return true;
+	}
+	
+	public boolean growTree(World world, Random rand, int x, int y, int z){
+		if(y>world.getHeight() - 8) return false;
+		
+		int trunkHeight = rand.nextInt(3) + 4;
+		int branchStartY = y + trunkHeight - 2;
+		
+		for(int yy = y; yy < branchStartY; ++yy){
+			if(!world.isAirBlock(x, yy, z)) return false;
+		}
+		
+		for(int yy = branchStartY; yy < branchStartY + 2; ++y){
+			for(int xx = x - 1; xx <= x + 1; ++xx){
+				for(int zz = z - 1; zz <= z + 1; ++zz){
+					if(!world.isAirBlock(xx, yy, zz)) return false;
+				}
+			}
+		}
+		
+		for(int yy = branchStartY + 2, r = 3; yy < branchStartY + 5; ++yy){
+			for(int xx = x - r; xx <= x + r; ++xx){
+				for(int zz = z - r; zz <= z + r; ++zz){
+					if(!world.isAirBlock(xx, yy, zz)) return false;
+				}
+			}
+			--r;
+		}
+		
+		byte branchSizes[] = new byte[4];
+		boolean longBranchGenerated = false;
+		
+		for(int attempt = 0; attempt < 3; ++attempt){
+			if((branchSizes[rand.nextInt(4)] = (byte)(rand.nextBoolean() && !longBranchGenerated ? 2 : 1)) == 2){
+				longBranchGenerated = true;
+			}
+		}
+		
+		for(int yy = y; yy < y + trunkHeight; ++yy){
+			world.setBlock(x, yy, z, Registry.BlockLavaInfusedLog);
+		}
+		
+		generateLeaves(world, x, y + trunkHeight, z, rand.nextInt(2) + 1);
+		
+		for(int a = 0, xx, zz; a < 4; ++a){
+			if(branchSizes[a] == 0) continue;
+			for(int branch = 0; branch < branchSizes[a]; ++branch){
+				xx = a == 0 ? x + 1 + branch : a == 1 ? x - 1 - branch : x;
+				zz = a == 2 ? z + 1 + branch : a == 3 ? z - 1 - branch : z;
+				world.setBlock(xx, y + trunkHeight - (branchSizes[a] == 1 ? 1 : 2 - branch), zz, Registry.BlockLavaInfusedLog, 0 + a <= 1 ? 4 : 8, 3);
+				
+				if(branch == 0) generateLeaves(world, xx, y + trunkHeight, zz, rand.nextInt(2) + 1);
+			}
+		}
+		
+		for(int yy = y + trunkHeight + 1; yy <= y + trunkHeight + 2; yy++){
+			for(int xx = x - 4; xx <= x + 4; xx++){
+				for(int zz = z - 4; zz <= z + 4; zz++){
+					if(world.getBlock(xx - 1, yy - 1, zz) == Registry.BlockLavaInfusedLeaves && world.getBlock(xx + 1, yy - 1, zz) == Registry.BlockLavaInfusedLeaves && world.getBlock(xx, yy - 1, zz - 1) == Registry.BlockLavaInfusedLeaves && world.getBlock(xx, yy - 1, zz + 1) == Registry.BlockLavaInfusedLeaves){
+						world.setBlock(xx, yy, zz, Registry.BlockLavaInfusedLeaves, 0, 3);
+					}
+				}
+			}
+		}
+		
+		return true;
+	}
+	
+	private void generateLeaves(World world, int x, int y, int z, int sideSize){
+		for(int xx = x - 2, xDiff, zDiff; xx <= x + 2; ++xx){
+			for(int zz = z - 2; zz <= z + 2; ++zz){
+				xDiff = Math.abs(xx - x);
+				zDiff = Math.abs(zz -z);
+				
+				if(((xDiff <= 1 && zDiff <= 1) || (xDiff == 2 && zDiff <= sideSize) || (xDiff <= sideSize && zDiff == 2)) && world.isAirBlock(xx, y, zz)){
+					world.setBlock(xx, y, zz, Registry.BlockLavaInfusedLeaves, 0 , 3);
+				}
+			}
+		}
 	}
 }
+	

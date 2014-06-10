@@ -1,0 +1,19 @@
+tile.rockCrusherIdle.name=Rock Crusher
+tile.rockCrusherActive.name=Cheater Using Spawning
+tile.advancedSmelterIdle.name=Advanced Smelter
+tile.advancedSmelterActive.name=Cheater Using Spawning
+tile.crystalOre.name=Crystal Ore
+tile.furnace.name=Furnace
+tile.lavaInfusedCraftingTable.name=Lava Infused Crafting Table
+tile.lavaInfusedLeaves.name=Lava Infused Leaves
+tile.lavaInfusedLog.name=Lava Infused Log
+tile.lavaInfusedPlanks.name=Lava Infused Planks
+tile.waterInfusedLog.name=Water Infused Log
+tile.waterInfusedLeaves.name=Water Infused Leaves
+tile.waterInfusedPlanks.name=Water Infused Planks
+tile.compressor.name=Compressor
+item.pebble.name=Pebble
+item.compressedCoal.name=Compressed Coal
+item.compressedDiamond.name=Compressed Diamond
+
+itemGroup.VanillaPlus=VanillaPlus

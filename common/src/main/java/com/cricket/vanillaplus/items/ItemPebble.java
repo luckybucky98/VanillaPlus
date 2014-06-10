@@ -1,18 +1,14 @@
 package com.cricket.vanillaplus.items;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 
 public class ItemPebble extends Item{
-	private Icon iconIndex;
 	
-	public ItemPebble(int id){
-		super(id);
+	public ItemPebble(){
+		super();
 		this.maxStackSize=(64);
+		setTextureName("vanillaplus:ItemPebble");
 	}
-	public void registerIcons(IconRegister reg){
-		this.itemIcon = reg.registerIcon("vanillaplus:ItemPebble");
-	}
-
 }

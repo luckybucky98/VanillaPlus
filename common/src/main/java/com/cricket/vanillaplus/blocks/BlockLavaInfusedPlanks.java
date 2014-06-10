@@ -1,23 +1,23 @@
 package com.cricket.vanillaplus.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.util.IIcon;
 
 public class BlockLavaInfusedPlanks extends Block{
 
-	public BlockLavaInfusedPlanks(int id, Material material) {
-		super(id, material);
-		this.setStepSound(Block.soundWoodFootstep);
+	public BlockLavaInfusedPlanks(Material material) {
+		super(material);
+		this.setStepSound(Block.soundTypeWood);
 		this.setHardness(2F);
 	}
 	
-	
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister){
-		this.blockIcon = iconRegister.registerIcon("vanillaplus:BlockLavaInfusedWood");
+	public void registerBlockIcons(IIconRegister register){
+		this.blockIcon = register.registerIcon("vanillaplus:BlockLavaInfusedPlanks");
 	}
-
+	
+	public IIcon getIcon(int side, int meta){
+		return blockIcon;
+	}
 }

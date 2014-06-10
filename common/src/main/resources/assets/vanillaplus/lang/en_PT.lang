@@ -1,0 +1,19 @@
+tile.rockCrusherIdle.name=Pebble Making Machine
+tile.rockCrusherActive.name=Cheater Using Spawning
+tile.advancedSmelterIdle.name=Better Oven
+tile.advancedSmelterActive.name=Cheater Using Spawning
+tile.crystalOre.name=Shinin' Orrre
+tile.furnace.name=Oven
+tile.lavaInfusedCraftingTable.name=Molten Craftin' Table
+tile.lavaInfusedLeaves.name=Leaves o' Molten Rock
+tile.lavaInfusedLog.name=Log o' Molten Rock
+tile.lavaInfusedPlanks.name=Timber o' Molten Rock
+tile.waterInfusedLog.name=Log o' Bilge
+tile.waterInfusedLeaves.name=Leaves o' Bilge
+tile.waterInfusedPlanks.name=Timbur o' Bilge
+tile.compressor.name=Loot Squisher
+item.pebble.name=Rock
+item.compressedCoal.name=Squished Heater
+item.compressedDiamond.name=Squished Wealth
+
+itemGroup.vanillaplus=Better than yer' voyage

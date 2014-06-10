@@ -7,8 +7,6 @@ public class BiomeGenLavaForest extends BiomeGenBase{
 
 	public BiomeGenLavaForest(int par1) {
 		super(par1);
-		this.topBlock = (byte) Block.redstoneLampActive.blockID;
-		this.fillerBlock = (byte) Block.glass.blockID;
 	}
 
 }

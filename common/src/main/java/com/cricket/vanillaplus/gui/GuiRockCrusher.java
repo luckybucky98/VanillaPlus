@@ -2,43 +2,50 @@ package com.cricket.vanillaplus.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.util.ResourceLocation;
-
-import com.cricket.vanillaplus.Reference;
 import com.cricket.vanillaplus.containers.ContainerRockCrusher;
 import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
 
+import cpw.mods.fml.relauncher.SideOnly;
+import cpw.mods.fml.relauncher.Side;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
+
+@SideOnly(Side.CLIENT)
 public class GuiRockCrusher extends GuiContainer{
-	private static final ResourceLocation rockCrusherGui = new ResourceLocation("vanillaplus","textures/gui/container/GuiRockCrusher.png");
-	private TileEntityRockCrusher rockCrusher;
-
-	public GuiRockCrusher(InventoryPlayer invPlayer, TileEntityRockCrusher tile){
-		super(new ContainerRockCrusher(invPlayer, tile));
-		this.rockCrusher = tile;
+	
+	private static final ResourceLocation texture = new ResourceLocation("textures/gui/container/GuiRockCrusher.png");
+	private TileEntityRockCrusher tileRockCrusher;
+	
+	public GuiRockCrusher(InventoryPlayer inv, TileEntityRockCrusher crusher) {
+		super(new ContainerRockCrusher(inv, crusher));
+		this.tileRockCrusher = crusher;
+	}
+	
+	@Override
+	protected void drawGuiContainerForegroundLayer(int par1, int par2){
+		String string = this.tileRockCrusher.hasCustomInventoryName() ? this.tileRockCrusher.getInventoryName() : I18n.format(this.tileRockCrusher.getInventoryName(), new Object[0]);
+		this.fontRendererObj.drawString(string, this.xSize / 2 - this.fontRendererObj.getStringWidth(string), 6, 4210752);
+		this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 94, 4210752);
 	}
 
-	protected void drawGuiContainerForeGroundLayer(int par1, int par2){
-		String var3 = this.rockCrusher.isInvNameLocalized() ? this.rockCrusher.getInvName() : I18n.getString(this.rockCrusher.getInvName());
-		this.fontRenderer.drawString(var3, this.xSize/2 - this.fontRenderer.getStringWidth(var3)/2,6,4210752);
-		this.fontRenderer.drawString(I18n.getString("container.inventory"),8,this.ySize-96+2,4210752);
-	}
-
-	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3){
-		GL11.glColor4f(1.0F,1.0F,1.0F,1.0F);
-		this.mc.getTextureManager().bindTexture(rockCrusherGui);
-		int var4 = (this.width - this.xSize)/2;
-		int var5 = (this.height - this.ySize)/2;
-		this.drawTexturedModalRect(var4, var5,0,0,this.xSize,this.ySize);
-		int var6;
-		if(this.rockCrusher.isGrinding()){
-			var6 = this.rockCrusher.getBurnTimeRemainingScaled(12);
-			this.drawTexturedModalRect(var4+56,var5+48-var6,176,12-var6,14,var6+2);
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
+		GL11.glColor4f(1.0F, 1.0f, 1.0f, 1.0f);
+		this.mc.getTextureManager().bindTexture(texture);
+		int c = (this.width - this.xSize) / 2;
+		int d = (this.height - this.ySize) / 2;
+		this.drawTexturedModalRect(c, d, 0, 0, this.xSize, this.ySize);
+		int e;
+		
+		if(this.tileRockCrusher.isBurning()){
+			e = this.tileRockCrusher.getBurnTimeRemainingScaled(12);
+			this.drawTexturedModalRect(c + 56, d + 36 + 12 - e, 176, 12 - e, 14, e + 2);
 		}
-		var6 = this.rockCrusher.getCookProgressScaled(24);
-		this.drawTexturedModalRect(var4+79,var5+34,176,14,var6+1,16);
+		
+		e = this.tileRockCrusher.getCookProgressScaled(24);
+		this.drawTexturedModalRect(c + 79, d = 34, 176, 14, e + 1, 16);
 	}
+	
 }

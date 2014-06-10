@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Map;
 
 import net.minecraft.launchwrapper.IClassTransformer;
-import net.minecraftforge.event.EventBus;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
@@ -14,6 +13,8 @@ import org.objectweb.asm.tree.LdcInsnNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.TypeInsnNode;
+
+import com.google.common.eventbus.EventBus;
 
 import cpw.mods.fml.common.DummyModContainer;
 import cpw.mods.fml.common.LoadController;
@@ -36,6 +37,7 @@ public class VanillaOverride extends DummyModContainer implements IFMLLoadingPlu
 		meta.parent = "VanillaPlus";
 	}
 	
+	@Override
 	public boolean registerBus(EventBus bus, LoadController controller){
 		bus.register(this);
 		return true;
@@ -61,9 +63,9 @@ public class VanillaOverride extends DummyModContainer implements IFMLLoadingPlu
 			System.out.println("[Vanilla Plus] Patching the vanilla class: " + name);
 			newData = patchVanillaSterf(data, false);
 			if(newData != data) {
-				System.out.println("[Vanilla Plus] Succesfully replaced Vanilla Fishing Rod and Fish");
+				System.out.println("[Vanilla Plus] Tada! Ya got yerself a new furnace");
 			} else {
-				System.out.println("[Vanilla Plus] Failed to replace Vanilla Fishing Rod and Fish");
+				System.out.println("[Vanilla Plus] We dun goofed should probably report this to Cricket");
 			}
 		}
 		return newData;
