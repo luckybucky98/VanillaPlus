@@ -16,30 +16,29 @@ import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
 import cpw.mods.fml.client.FMLClientHandler;
 
 public class RenderRockCrusher extends TileEntitySpecialRenderer{
-
-	//private final ModelRockCrusher modelRockCrusher = new ModelRockCrusher;
-	private static final ResourceLocation textureRockCrusher = new ResourceLocation("vanillaplus:BlockRockCrusher");
+	private ModelRockCrusher model = new ModelRockCrusher();
+	private ResourceLocation texture = "vanillaplus:/textures/tile/TileRockCrusher.png";
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double d0, double d1, double d2, float f){
-		GL11.glPushMatrix();
-		GL11.glTranslatef((float) d0, (float) d1, (float) d2);
-		TileEntityRockCrusher tile = (TileEntityRockCrusher) tileEntity;
-		
+	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float partialTick){
+		renderModelAt((TileEntityRockCrusher)tile, x, y, z, partialTick);
 	}
 	
-	public void renderRockCrusher(TileEntityRockCrusher rockCrusher, World world, int x, int y, int z, Block block){
-		Tessellator tessellator = Tessellator.instance;
-		float f = block.getMixedBrightnessForBlock(world, x, y, z);
-		int l = world.getLightBrightnessForSkyBlocks(x, y, z, 0);
-		int l1 = 1 % 65536;
-		int l2 = 1 / 65536;
-		tessellator.setColorOpaque_F(f, f, f);
-		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) l1, (float) l2);
+	private void renderModelAt(TileEntityRockCrusher tile, double x, double y, double z, float partialTick){
 		GL11.glPushMatrix();
-		GL11.glTranslatef(0.5F, 1.4F, 0.5F);
-		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textureRockCrusher);
-		//this.modelRockCrusher.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+		GL11.glTranslatef((float)x + 0.5F, (float)y + 1.5F, (float)z + 0.5F);
+		
+		bindTexture(texture);
+		
+		switch(tile.facing){
+			case 2: GL11.glRotatef(90, 0.0F, 1.0F, 0.0F); break;
+			case 3: GL11.glRotatef(270, 0.0F, 1.0F, 0.0F); break;
+			case 4: GL11.glRotatef(180, 0.0F, 1.0F, 0.0F); break;
+			case 5: GL11.glRotatef(0, 0.0F, 1.0F, 0.0F); break;
+		}
+		
+		GL11.glRotatef(180, 0.0F, 0.0F, 1.0F);
+		model.render(0.0625F, tile.isActive);
+		GL11.glPopMatrix
 	}
 }
