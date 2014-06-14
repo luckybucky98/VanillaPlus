@@ -9,8 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.cricket.vanillaplus.CommonProxy;
+import net.minecraft.client.Minecraft;
 
+import com.cricket.vanillaplus.CommonProxy;
+import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
+
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLInitializationEvent;

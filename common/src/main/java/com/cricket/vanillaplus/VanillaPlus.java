@@ -44,7 +44,6 @@ public class VanillaPlus {
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 		proxy.init(event);
-		
 	}
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
