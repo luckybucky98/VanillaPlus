@@ -135,9 +135,9 @@ public class TileEntityRockCrusher extends TileEntity implements ISidedInventory
         return this.stringName != null && this.stringName.length() > 0;
     }
 
-    public void func_145951_a(String p_145951_1_)
+    public void setInventoryName(String name)
     {
-        this.stringName = p_145951_1_;
+        this.stringName = name;
     }
 
     public void readFromNBT(NBTTagCompound nbt)

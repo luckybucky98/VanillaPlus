@@ -15,5 +15,6 @@ tile.compressor.name=Compressor
 item.pebble.name=Pebble
 item.compressedCoal.name=Compressed Coal
 item.compressedDiamond.name=Compressed Diamond
+container.rockCrusher=Rock Crusher
 
 itemGroup.VanillaPlus=VanillaPlus

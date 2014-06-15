@@ -26,6 +26,7 @@ import com.cricket.vanillaplus.creativetab.CreativeTab;
 import com.cricket.vanillaplus.items.ItemCompressedCoal;
 import com.cricket.vanillaplus.items.ItemCompressedDiamond;
 import com.cricket.vanillaplus.items.ItemPebble;
+import com.cricket.vanillaplus.items.ItemParticleTester;
 import com.cricket.vanillaplus.tiles.TileEntityAdvancedSmelter;
 import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
 
@@ -54,7 +55,7 @@ public class Registry {
 	public static Item ItemPebble;
 	public static Item ItemCompressedCoal;
 	public static Item ItemCompressedDiamond;
-	public static Item ItemSpawnUnicorn;
+	public static Item ItemParticleTester;
 	
 	private static void preInit(){
 		preBlocks();
@@ -82,6 +83,7 @@ public class Registry {
 		ItemPebble = new ItemPebble().setCreativeTab(CreativeTab.VANILLAPLUS_TAB).setUnlocalizedName("pebble");
 		ItemCompressedCoal = new ItemCompressedCoal().setCreativeTab(CreativeTab.VANILLAPLUS_TAB).setUnlocalizedName("compressedCoal");
 		ItemCompressedDiamond = new ItemCompressedDiamond().setCreativeTab(CreativeTab.VANILLAPLUS_TAB).setUnlocalizedName("compressedDiamond");
+		ItemParticleTester = new ItemParticleTester().setCreativeTab(CreativeTab.VANILLAPLUS_TAB).setUnlocalizedName("particleTester");
 	}
 	
 	private static void game(){
@@ -115,6 +117,7 @@ public class Registry {
 		GameRegistry.registerItem(ItemPebble,"Pebble");
 		GameRegistry.registerItem(ItemCompressedCoal, "CompressedCoal");
 		GameRegistry.registerItem(ItemCompressedDiamond, "CompressedDiamond");
+		GameRegistry.registerItem(ItemParticleTester, "ParticleTester");
 	}
 	private static void tiles(){
 		GameRegistry.registerTileEntity(TileEntityRockCrusher.class, "RockCrusher");

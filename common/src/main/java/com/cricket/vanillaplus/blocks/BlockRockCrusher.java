@@ -221,7 +221,7 @@ public class BlockRockCrusher extends BlockContainer {
 
         if (stack.hasDisplayName())
         {
-            ((TileEntityRockCrusher)world.getTileEntity(x, y, z)).func_145951_a(stack.getDisplayName());
+            ((TileEntityRockCrusher)world.getTileEntity(x, y, z)).setInventoryName(stack.getDisplayName());
         }
     }
 
