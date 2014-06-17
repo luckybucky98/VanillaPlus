@@ -1,4 +1,4 @@
-package com.cricket.vanillaplus.api.handlers;
+package com.cricket.vanillaplus.handlers;
 
 import java.awt.Graphics;
 import java.awt.Image;

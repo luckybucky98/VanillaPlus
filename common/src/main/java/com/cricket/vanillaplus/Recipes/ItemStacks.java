@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import com.cricket.vanillaplus.api.Registry;
+import com.cricket.vanillaplus.Registry;
 
 public class ItemStacks {
 	//static ItemStack cobbleStack = new ItemStack();

@@ -35,7 +35,7 @@ public class TreeManager implements IWorldGenerator{
 		        	int Xcoord1 = x + random.nextInt(16);
 		        	int Ycoord1 = random.nextInt(100);
 		        	int Zcoord1 = z + random.nextInt(16);
-		        	new WorldGenWaterTree().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		        	//new WorldGenWaterTree().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 		        }
 	       
 	}

@@ -1,4 +1,4 @@
-package com.cricket.vanillaplus.api;
+package com.cricket.vanillaplus;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -7,28 +7,11 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 
-import com.cricket.vanillaplus.Reference;
-import com.cricket.vanillaplus.VanillaPlus;
-import com.cricket.vanillaplus.api.handlers.GuiHandler;
-import com.cricket.vanillaplus.blocks.BlockAdvancedSmelter;
-import com.cricket.vanillaplus.blocks.BlockCompressor;
-import com.cricket.vanillaplus.blocks.BlockCrystalOre;
-import com.cricket.vanillaplus.blocks.BlockFurnace;
-import com.cricket.vanillaplus.blocks.BlockLavaInfusedCraftingTable;
-import com.cricket.vanillaplus.blocks.BlockLavaInfusedLeaves;
-import com.cricket.vanillaplus.blocks.BlockLavaInfusedLog;
-import com.cricket.vanillaplus.blocks.BlockLavaInfusedPlanks;
-import com.cricket.vanillaplus.blocks.BlockRockCrusher;
-import com.cricket.vanillaplus.blocks.BlockWaterInfusedLeaves;
-import com.cricket.vanillaplus.blocks.BlockWaterInfusedLog;
-import com.cricket.vanillaplus.blocks.BlockWaterInfusedPlanks;
+import com.cricket.vanillaplus.blocks.*;
 import com.cricket.vanillaplus.creativetab.CreativeTab;
-import com.cricket.vanillaplus.items.ItemCompressedCoal;
-import com.cricket.vanillaplus.items.ItemCompressedDiamond;
-import com.cricket.vanillaplus.items.ItemPebble;
-import com.cricket.vanillaplus.items.ItemParticleTester;
-import com.cricket.vanillaplus.tiles.TileEntityAdvancedSmelter;
-import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
+import com.cricket.vanillaplus.handlers.GuiHandler;
+import com.cricket.vanillaplus.items.*;
+import com.cricket.vanillaplus.tiles.*;
 
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -51,6 +34,7 @@ public class Registry {
 	public static Block BlockWaterInfusedPlanks;
 	public static Block BlockLavaInfusedCraftingTable;
 	public static Block BlockFurnace;
+	public static Block BlockGrinder;
 	
 	public static Item ItemPebble;
 	public static Item ItemCompressedCoal;
@@ -77,6 +61,7 @@ public class Registry {
 		BlockAdvancedSmelterActive = new BlockAdvancedSmelter(Material.rock).setBlockName("advancedSmelterActive").setLightLevel(500);
 		BlockLavaInfusedCraftingTable = new BlockLavaInfusedCraftingTable(Material.wood).setCreativeTab(CreativeTab.VANILLAPLUS_TAB).setBlockName("lavaInfusedCraftingTable");
 		BlockFurnace = new BlockFurnace(Material.rock).setHardness(3.5f).setCreativeTab(CreativeTab.VANILLAPLUS_TAB).setBlockName("furnace");
+		BlockGrinder = new BlockGrinder().setHardness(3.5F).setCreativeTab(CreativeTab.VANILLAPLUS_TAB).setBlockName("grinder");
 	}
 	
 	private static void preItems(){
@@ -112,6 +97,7 @@ public class Registry {
 		GameRegistry.registerBlock(BlockWaterInfusedLog, ItemBlock.class, BlockWaterInfusedLog.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockWaterInfusedPlanks, ItemBlock.class, BlockWaterInfusedPlanks.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockFurnace, ItemBlock.class, BlockFurnace.getUnlocalizedName());
+		GameRegistry.registerBlock(BlockGrinder, ItemBlock.class, BlockGrinder.getUnlocalizedName());
 	}
 	private static void items(){
 		GameRegistry.registerItem(ItemPebble,"Pebble");

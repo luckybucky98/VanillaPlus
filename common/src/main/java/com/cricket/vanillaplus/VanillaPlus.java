@@ -3,8 +3,7 @@ package com.cricket.vanillaplus;
 import net.minecraftforge.common.config.Configuration;
 
 import com.cricket.vanillaplus.Recipes.Crafting;
-import com.cricket.vanillaplus.api.Registry;
-import com.cricket.vanillaplus.api.handlers.VPEventHandlers;
+import com.cricket.vanillaplus.handlers.VPEventHandlers;
 import com.cricket.vanillaplus.worldgen.TreeManager;
 
 import cpw.mods.fml.common.Mod;

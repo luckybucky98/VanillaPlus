@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.ShapedRecipes;
 
-import com.cricket.vanillaplus.api.Registry;
+import com.cricket.vanillaplus.Registry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

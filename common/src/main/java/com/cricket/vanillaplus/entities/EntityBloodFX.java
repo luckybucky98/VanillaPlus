@@ -12,7 +12,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class EntityBloodFX extends EntityFX{
 
-	private static final ResourceLocation texture = new ResourceLocation("vanillaplus", "textures/particle/blood.png");
+	private static final ResourceLocation texture = new ResourceLocation("vanillaplus:textures/particle/blood.png");
 	
 	public EntityBloodFX(World world, double x, double y, double z, float f, float f1, float f2){
 		this(world, x, y, z, 1.0F, f, f1, f2);

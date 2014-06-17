@@ -1,4 +1,4 @@
-package com.cricket.vanillaplus.api.handlers;
+package com.cricket.vanillaplus.handlers;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

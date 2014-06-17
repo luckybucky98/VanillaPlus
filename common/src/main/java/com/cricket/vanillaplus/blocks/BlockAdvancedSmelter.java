@@ -2,8 +2,8 @@ package com.cricket.vanillaplus.blocks;
 
 import java.util.Random;
 
+import com.cricket.vanillaplus.Registry;
 import com.cricket.vanillaplus.VanillaPlus;
-import com.cricket.vanillaplus.api.Registry;
 import com.cricket.vanillaplus.tiles.TileEntityAdvancedSmelter;
 
 import net.minecraft.block.Block;

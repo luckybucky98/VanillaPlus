@@ -1,4 +1,4 @@
-package com.cricket.vanillaplus.api;
+package com.cricket.vanillaplus;
 
 import java.io.IOException;
 

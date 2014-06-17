@@ -21,8 +21,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import com.cricket.vanillaplus.Reference;
+import com.cricket.vanillaplus.Registry;
 import com.cricket.vanillaplus.VanillaPlus;
-import com.cricket.vanillaplus.api.Registry;
 import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
 
 import cpw.mods.fml.relauncher.Side;

@@ -2,7 +2,7 @@ package com.cricket.vanillaplus.worldgen;
 
 import java.util.Random;
 
-import com.cricket.vanillaplus.api.Registry;
+import com.cricket.vanillaplus.Registry;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
