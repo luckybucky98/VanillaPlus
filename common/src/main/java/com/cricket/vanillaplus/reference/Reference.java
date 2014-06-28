@@ -1,4 +1,4 @@
-package com.cricket.vanillaplus;
+package com.cricket.vanillaplus.reference;
 
 public class Reference {
 	

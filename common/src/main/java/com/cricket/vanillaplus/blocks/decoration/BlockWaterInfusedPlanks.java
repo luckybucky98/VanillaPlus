@@ -1,4 +1,4 @@
-package com.cricket.vanillaplus.blocks;
+package com.cricket.vanillaplus.blocks.decoration;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

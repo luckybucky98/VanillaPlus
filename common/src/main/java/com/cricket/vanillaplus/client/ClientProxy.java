@@ -1,34 +1,31 @@
 package com.cricket.vanillaplus.client;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import net.minecraft.client.Minecraft;
-
 import com.cricket.vanillaplus.CommonProxy;
-import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
+import com.cricket.vanillaplus.client.rendering.CrystalClusterRenderer;
 
-import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
+	
+	public static int renderPass;
+	public static int crystalClusterRenderType;
+	
 	public void preInit(FMLPreInitializationEvent event){
 		
 	}
 	public void init(FMLInitializationEvent event){
-		
+		setupCustomRenderers();
 	}
 	public void postInit(FMLPostInitializationEvent event){
 		
+	}
+	
+	public static void setupCustomRenderers(){
+		crystalClusterRenderType = RenderingRegistry.getNextAvailableRenderId();
+		
+		RenderingRegistry.registerBlockHandler(new CrystalClusterRenderer());
 	}
 }

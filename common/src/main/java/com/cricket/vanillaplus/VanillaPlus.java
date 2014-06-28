@@ -4,6 +4,7 @@ import net.minecraftforge.common.config.Configuration;
 
 import com.cricket.vanillaplus.Recipes.Crafting;
 import com.cricket.vanillaplus.handlers.VPEventHandlers;
+import com.cricket.vanillaplus.reference.Reference;
 import com.cricket.vanillaplus.worldgen.TreeManager;
 
 import cpw.mods.fml.common.Mod;
@@ -20,11 +21,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class VanillaPlus {
 	
 	//TreeManager treeManager = new TreeManager();
-	
-	//GUI
-	public static final int guiIDRockCrusher = 0;
-	public static final int guiIDAdvancedSmelter = 1;
-	public static final int guiIDLavaInfusedCraftingTable = 2;
 	
 	@Instance(Reference.MODID)
 	public static VanillaPlus instance;

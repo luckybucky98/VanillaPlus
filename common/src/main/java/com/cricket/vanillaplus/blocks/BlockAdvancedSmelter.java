@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.cricket.vanillaplus.Registry;
 import com.cricket.vanillaplus.VanillaPlus;
+import com.cricket.vanillaplus.reference.GuiReference;
 import com.cricket.vanillaplus.tiles.TileEntityAdvancedSmelter;
 
 import net.minecraft.block.Block;
@@ -118,7 +119,7 @@ public class BlockAdvancedSmelter extends BlockContainer{
 		if(tileEntity == null || player.isSneaking()){
 			return false;
 		}
-		player.openGui(VanillaPlus.instance, VanillaPlus.guiIDAdvancedSmelter, world, x, y, z);
+		player.openGui(VanillaPlus.instance, GuiReference.guiIDAdvancedSmelter, world, x, y, z);
 		return true;
 	}
 	

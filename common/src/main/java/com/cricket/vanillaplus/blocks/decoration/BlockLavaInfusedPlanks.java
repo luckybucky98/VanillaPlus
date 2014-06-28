@@ -1,4 +1,4 @@
-package com.cricket.vanillaplus.blocks;
+package com.cricket.vanillaplus.blocks.decoration;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
