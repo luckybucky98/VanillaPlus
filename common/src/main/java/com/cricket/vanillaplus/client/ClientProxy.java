@@ -1,7 +1,9 @@
 package com.cricket.vanillaplus.client;
 
 import com.cricket.vanillaplus.CommonProxy;
-import com.cricket.vanillaplus.client.rendering.CrystalClusterRenderer;
+import com.cricket.vanillaplus.client.rendering.mobs.RenderPigCarcass;
+import com.cricket.vanillaplus.mobs.EntityPigCarcass;
+import com.cricket.vanillaplus.models.ModelPigCarcass;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -12,6 +14,7 @@ public class ClientProxy extends CommonProxy {
 	
 	public static int renderPass;
 	public static int crystalClusterRenderType;
+	public static int pigCarcassRenderType;
 	
 	public void preInit(FMLPreInitializationEvent event){
 		
@@ -23,9 +26,11 @@ public class ClientProxy extends CommonProxy {
 		
 	}
 	
-	public static void setupCustomRenderers(){
-		crystalClusterRenderType = RenderingRegistry.getNextAvailableRenderId();
+	private static void setupCustomRenderers(){
+		//crystalClusterRenderType = RenderingRegistry.getNextAvailableRenderId();
+		pigCarcassRenderType = RenderingRegistry.getNextAvailableRenderId();
 		
-		RenderingRegistry.registerBlockHandler(new CrystalClusterRenderer());
+		//RenderingRegistry.registerBlockHandler(new CrystalClusterRenderer());
+		RenderingRegistry.registerEntityRenderingHandler(EntityPigCarcass.class, new RenderPigCarcass(new ModelPigCarcass(), 0.5F));
 	}
 }

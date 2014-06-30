@@ -53,7 +53,8 @@ public class BlockCrystalOre extends Block{
 	
 	@Override
 	public int getRenderType(){
-		return ClientProxy.crystalClusterRenderType;
+		return 0;
+		//return ClientProxy.crystalClusterRenderType;
 	}
 	
 	@Override

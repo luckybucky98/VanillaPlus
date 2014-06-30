@@ -27,6 +27,7 @@ import com.cricket.vanillaplus.blocks.nature.BlockWaterInfusedLeaves;
 import com.cricket.vanillaplus.blocks.nature.BlockWaterInfusedLog;
 import com.cricket.vanillaplus.creativetab.CreativeTabMain;
 import com.cricket.vanillaplus.creativetab.CreativeTabNature;
+import com.cricket.vanillaplus.handlers.EntityHandler;
 import com.cricket.vanillaplus.handlers.GuiHandler;
 import com.cricket.vanillaplus.items.ItemBlockMultiple;
 import com.cricket.vanillaplus.items.ItemCompressedCoal;
@@ -36,7 +37,9 @@ import com.cricket.vanillaplus.items.ItemCrystalOre;
 import com.cricket.vanillaplus.items.ItemParticleTester;
 import com.cricket.vanillaplus.items.ItemPebble;
 import com.cricket.vanillaplus.items.ItemSapling;
+import com.cricket.vanillaplus.mobs.EntityPigCarcass;
 import com.cricket.vanillaplus.reference.BiomeIDReference;
+import com.cricket.vanillaplus.reference.Reference;
 import com.cricket.vanillaplus.tiles.TileEntityAdvancedSmelter;
 import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
 import com.cricket.vanillaplus.worldgen.VPWorldGen;
@@ -46,6 +49,7 @@ import com.cricket.vanillaplus.worldgen.biomes.BiomeGenWaterForest;
 
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Registry {
@@ -75,6 +79,8 @@ public class Registry {
 	public static Item ItemParticleTester;
 	public static Item ItemCrystalOre;
 	public static Item ItemCrystal;
+	
+	public static String pig = "pigCarcass";
 	
 	public static VPWorldGen worldGen = new VPWorldGen();
 	
@@ -116,6 +122,7 @@ public class Registry {
 		blocks();
 		items();
 		tiles();
+		mobs();
 		world();
 	}
 	
@@ -168,6 +175,10 @@ public class Registry {
 		
 		BiomeManager.addVillageBiome(waterForest, true);
 		BiomeManager.addVillageBiome(lavaForest, true);
+	}
+	
+	private static void mobs(){
+		EntityHandler.createNewEntity(EntityPigCarcass.class, pig);
 	}
 	
 	public static void load(){
