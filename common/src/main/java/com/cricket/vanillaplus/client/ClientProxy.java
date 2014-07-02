@@ -27,7 +27,7 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	private static void setupCustomRenderers(){
-		//crystalClusterRenderType = RenderingRegistry.getNextAvailableRenderId();
+		crystalClusterRenderType = RenderingRegistry.getNextAvailableRenderId();
 		pigCarcassRenderType = RenderingRegistry.getNextAvailableRenderId();
 		
 		//RenderingRegistry.registerBlockHandler(new CrystalClusterRenderer());

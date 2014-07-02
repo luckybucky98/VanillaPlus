@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.cricket.vanillaplus.Registry;
 import com.cricket.vanillaplus.VanillaPlus;
+import com.cricket.vanillaplus.creativetab.CreativeTab;
 import com.cricket.vanillaplus.reference.GuiReference;
 import com.cricket.vanillaplus.tiles.TileEntityAdvancedSmelter;
 
@@ -35,7 +36,6 @@ public class BlockAdvancedSmelter extends BlockContainer{
 	
 	public BlockAdvancedSmelter(Material material) {
 		super(material);
-		
 	}
 	
 	public Item getItemDropped(int par1, Random rand, int par2){

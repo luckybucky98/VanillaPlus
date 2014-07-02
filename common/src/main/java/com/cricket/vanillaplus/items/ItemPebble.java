@@ -8,7 +8,7 @@ public class ItemPebble extends Item{
 	
 	public ItemPebble(){
 		super();
-		this.maxStackSize=(64);
+		this.maxStackSize = 64;
 		setTextureName("vanillaplus:ItemPebble");
 	}
 }

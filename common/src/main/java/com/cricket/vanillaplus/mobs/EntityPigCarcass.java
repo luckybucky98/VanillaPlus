@@ -8,14 +8,18 @@ import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 import com.cricket.vanillaplus.mobs.ai.AICarcass;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class EntityPigCarcass extends EntityAnimal{
 
 	public EntityPigCarcass(World world) {
 		super(world);
 		this.tasks.addTask(0, new AICarcass(this, 0.0D));
+		this.setSize(1.0F, 1.0F);
 	}
 	
 	@Override
@@ -26,7 +30,7 @@ public class EntityPigCarcass extends EntityAnimal{
 	@Override
 	protected void applyEntityAttributes(){
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100000000000.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.0D);
 	}
 	

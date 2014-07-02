@@ -1,5 +1,7 @@
 package com.cricket.vanillaplus.blocks.decoration;
 
+import com.cricket.vanillaplus.creativetab.CreativeTab;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -11,6 +13,7 @@ public class BlockLavaInfusedPlanks extends Block{
 		super(material);
 		this.setStepSound(Block.soundTypeWood);
 		this.setHardness(2F);
+		this.setCreativeTab(CreativeTab.VP_DECORATION);
 	}
 	
 	public void registerBlockIcons(IIconRegister register){

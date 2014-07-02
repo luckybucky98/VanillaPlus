@@ -5,7 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
-import com.cricket.vanillaplus.creativetab.CreativeTabMain;
+import com.cricket.vanillaplus.creativetab.CreativeTab;
 
 
 public class BlockLavaInfusedLeaves extends Block{
@@ -15,7 +15,7 @@ public class BlockLavaInfusedLeaves extends Block{
 		this.setHardness(0.2F);
 		this.setResistance(2F);
 		this.setStepSound(Block.soundTypeGrass);
-	    this.setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB);
+	    this.setCreativeTab(CreativeTab.VP_NATURE);
 	}
 	
 	public IIcon getIcon(int side, int meta){

@@ -12,34 +12,15 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 
-import com.cricket.vanillaplus.blocks.BlockAdvancedSmelter;
-import com.cricket.vanillaplus.blocks.BlockCompressor;
-import com.cricket.vanillaplus.blocks.BlockCrystalOre;
-import com.cricket.vanillaplus.blocks.BlockGrinder;
-import com.cricket.vanillaplus.blocks.BlockLavaInfusedCraftingTable;
-import com.cricket.vanillaplus.blocks.BlockRockCrusher;
-import com.cricket.vanillaplus.blocks.decoration.BlockLavaInfusedPlanks;
-import com.cricket.vanillaplus.blocks.decoration.BlockWaterInfusedPlanks;
-import com.cricket.vanillaplus.blocks.nature.BlockLavaInfusedLeaves;
-import com.cricket.vanillaplus.blocks.nature.BlockLavaInfusedLog;
-import com.cricket.vanillaplus.blocks.nature.BlockSapling;
-import com.cricket.vanillaplus.blocks.nature.BlockWaterInfusedLeaves;
-import com.cricket.vanillaplus.blocks.nature.BlockWaterInfusedLog;
-import com.cricket.vanillaplus.creativetab.CreativeTabMain;
-import com.cricket.vanillaplus.creativetab.CreativeTabNature;
+import com.cricket.vanillaplus.blocks.*;
+import com.cricket.vanillaplus.blocks.decoration.*;
+import com.cricket.vanillaplus.blocks.nature.*;
+import com.cricket.vanillaplus.creativetab.CreativeTab;
 import com.cricket.vanillaplus.handlers.EntityHandler;
 import com.cricket.vanillaplus.handlers.GuiHandler;
-import com.cricket.vanillaplus.items.ItemBlockMultiple;
-import com.cricket.vanillaplus.items.ItemCompressedCoal;
-import com.cricket.vanillaplus.items.ItemCompressedDiamond;
-import com.cricket.vanillaplus.items.ItemCrystal;
-import com.cricket.vanillaplus.items.ItemCrystalOre;
-import com.cricket.vanillaplus.items.ItemParticleTester;
-import com.cricket.vanillaplus.items.ItemPebble;
-import com.cricket.vanillaplus.items.ItemSapling;
+import com.cricket.vanillaplus.items.*;
 import com.cricket.vanillaplus.mobs.EntityPigCarcass;
 import com.cricket.vanillaplus.reference.BiomeIDReference;
-import com.cricket.vanillaplus.reference.Reference;
 import com.cricket.vanillaplus.tiles.TileEntityAdvancedSmelter;
 import com.cricket.vanillaplus.tiles.TileEntityRockCrusher;
 import com.cricket.vanillaplus.worldgen.VPWorldGen;
@@ -49,7 +30,6 @@ import com.cricket.vanillaplus.worldgen.biomes.BiomeGenWaterForest;
 
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Registry {
@@ -59,7 +39,8 @@ public class Registry {
 	
 	public static Block BlockRockCrusherIdle;
 	public static Block BlockRockCrusherActive;
-	public static Block BlockCompressor;
+	public static Block BlockCompressorActive;
+	public static Block BlockCompressorIdle;
 	public static Block BlockCrystalOre;
 	public static Block BlockLavaInfusedLog;
 	public static Block BlockWaterInfusedLog;
@@ -70,8 +51,12 @@ public class Registry {
 	public static Block BlockLavaInfusedPlanks;
 	public static Block BlockWaterInfusedPlanks;
 	public static Block BlockLavaInfusedCraftingTable;
-	public static Block BlockGrinder;
+	public static Block BlockWaterInfusedCraftingTable;
+	public static Block BlockGrinderIdle;
+	public static Block BlockGrinderActive;
 	public static Block BlockSapling;
+	public static Block BlockWaterInfusedDoor;
+	public static Block BlockLavaInfusedDoor;
 	
 	public static Item ItemPebble;
 	public static Item ItemCompressedCoal;
@@ -79,6 +64,9 @@ public class Registry {
 	public static Item ItemParticleTester;
 	public static Item ItemCrystalOre;
 	public static Item ItemCrystal;
+	public static Item ItemFertilizer;
+	public static Item ItemWaterInfusedDoor;
+	public static Item ItemLavaInfusedDoor;
 	
 	public static String pig = "pigCarcass";
 	
@@ -92,30 +80,36 @@ public class Registry {
 	}
 	
 	private static void preBlocks(){
-		BlockRockCrusherIdle = new BlockRockCrusher(Material.rock, false).setHardness(3.5F).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("rockCrusherIdle");
+		BlockRockCrusherIdle = new BlockRockCrusher(Material.rock, false).setHardness(3.5F).setBlockName("rockCrusherIdle").setCreativeTab(CreativeTab.VP_MACHINES);
 		BlockRockCrusherActive = new BlockRockCrusher(Material.rock, true).setHardness(3.5F).setBlockName("rockCrusherActive");
-		BlockCrystalOre = new BlockCrystalOre().setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("crystalOre");
-		BlockLavaInfusedLeaves = new BlockLavaInfusedLeaves(Material.leaves).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setLightLevel(1000).setBlockName("lavaInfusedLeaves");
-		BlockLavaInfusedLog = new BlockLavaInfusedLog(Material.wood).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("lavaInfusedLog");
-		BlockLavaInfusedPlanks = new BlockLavaInfusedPlanks(Material.wood).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("lavaInfusedPlanks");
-		BlockWaterInfusedLeaves = new BlockWaterInfusedLeaves(Material.leaves).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("waterInfusedLeaves");
-		BlockWaterInfusedLog = new BlockWaterInfusedLog(Material.wood).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("waterInfusedLog");
-		BlockWaterInfusedPlanks = new BlockWaterInfusedPlanks(Material.wood).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("waterInfusedPlanks");
-		BlockCompressor = new BlockCompressor(Material.rock).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("compressor");
-		BlockAdvancedSmelterIdle = new BlockAdvancedSmelter(Material.rock).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("advancedSmelterIdle");
+		BlockCrystalOre = new BlockCrystalOre().setBlockName("crystalOre");
+		BlockLavaInfusedLeaves = new BlockLavaInfusedLeaves(Material.leaves).setLightLevel(1000).setBlockName("lavaInfusedLeaves");
+		BlockLavaInfusedLog = new BlockLavaInfusedLog(Material.wood).setBlockName("lavaInfusedLog");
+		BlockLavaInfusedPlanks = new BlockLavaInfusedPlanks(Material.wood).setBlockName("lavaInfusedPlanks");
+		BlockWaterInfusedLeaves = new BlockWaterInfusedLeaves(Material.leaves).setBlockName("waterInfusedLeaves");
+		BlockWaterInfusedLog = new BlockWaterInfusedLog(Material.wood).setBlockName("waterInfusedLog");
+		BlockWaterInfusedPlanks = new BlockWaterInfusedPlanks(Material.wood).setBlockName("waterInfusedPlanks");
+		BlockCompressorIdle = new BlockCompressor(Material.rock).setBlockName("compressorIdle").setCreativeTab(CreativeTab.VP_MACHINES);
+		BlockCompressorActive = new BlockCompressor(Material.rock).setBlockName("compressorActive");
+		BlockAdvancedSmelterIdle = new BlockAdvancedSmelter(Material.rock).setBlockName("advancedSmelterIdle").setCreativeTab(CreativeTab.VP_MACHINES);
 		BlockAdvancedSmelterActive = new BlockAdvancedSmelter(Material.rock).setBlockName("advancedSmelterActive").setLightLevel(500);
-		BlockLavaInfusedCraftingTable = new BlockLavaInfusedCraftingTable(Material.wood).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("lavaInfusedCraftingTable");
-		BlockGrinder = new BlockGrinder().setHardness(3.5F).setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setBlockName("grinder");
-		BlockSapling = new BlockSapling().setCreativeTab(CreativeTabNature.VP_NATURE);
+		BlockLavaInfusedCraftingTable = new BlockLavaInfusedCraftingTable(Material.wood).setBlockName("lavaInfusedCraftingTable");
+		BlockWaterInfusedCraftingTable = new BlockWaterInfusedCraftingTable(Material.wood).setBlockName("waterInfusedCraftingTable");
+		BlockGrinderIdle = new BlockGrinder().setHardness(3.5F).setBlockName("grinderIdle").setCreativeTab(CreativeTab.VP_MACHINES);
+		BlockGrinderActive = new BlockGrinder().setHardness(3.5F).setBlockName("grinderActive");
+		BlockSapling = new BlockSapling();
+		BlockWaterInfusedDoor = new BlockWaterInfusedDoor(Material.wood).setBlockName("waterInfusedDoor");
 	}
 	
 	private static void preItems(){
-		ItemPebble = new ItemPebble().setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setUnlocalizedName("pebble");
-		ItemCompressedCoal = new ItemCompressedCoal().setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setUnlocalizedName("compressedCoal");
-		ItemCompressedDiamond = new ItemCompressedDiamond().setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setUnlocalizedName("compressedDiamond");
-		ItemParticleTester = new ItemParticleTester().setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setUnlocalizedName("particleTester");
-		ItemCrystalOre = new ItemCrystalOre().setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setUnlocalizedName("crystalOre");
-		ItemCrystal = new ItemCrystal().setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB).setUnlocalizedName("crystalOre");
+		ItemPebble = new ItemPebble().setUnlocalizedName("pebble");
+		ItemCompressedCoal = new ItemCompressedCoal().setUnlocalizedName("compressedCoal");
+		ItemCompressedDiamond = new ItemCompressedDiamond().setUnlocalizedName("compressedDiamond");
+		ItemParticleTester = new ItemParticleTester().setUnlocalizedName("particleTester");
+		ItemCrystalOre = new ItemCrystalOre().setUnlocalizedName("crystalOre");
+		ItemCrystal = new ItemCrystal().setUnlocalizedName("crystalOre");
+		ItemFertilizer = new ItemFertilizer().setUnlocalizedName("fertilizer");
+		ItemWaterInfusedDoor = new ItemWaterInfusedDoor(Material.wood).setUnlocalizedName("waterInfusedDoor");	
 	}
 	
 	private static void game(){
@@ -136,17 +130,21 @@ public class Registry {
 		GameRegistry.registerBlock(BlockRockCrusherActive, ItemBlock.class,BlockRockCrusherActive.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockAdvancedSmelterIdle, ItemBlock.class, BlockAdvancedSmelterIdle.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockAdvancedSmelterActive, ItemBlock.class, BlockAdvancedSmelterActive.getUnlocalizedName());
-		GameRegistry.registerBlock(BlockCompressor, ItemBlock.class, BlockCompressor.getUnlocalizedName());
-		GameRegistry.registerBlock(BlockCrystalOre, ItemBlockMultiple.class, BlockCrystalOre.getUnlocalizedName());
+		GameRegistry.registerBlock(BlockCompressorIdle, ItemBlock.class, BlockCompressorIdle.getUnlocalizedName());
+		GameRegistry.registerBlock(BlockCompressorActive, ItemBlock.class, BlockCompressorActive.getUnlocalizedName());
+		GameRegistry.registerBlock(BlockCrystalOre, ItemBlock.class, BlockCrystalOre.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockLavaInfusedLeaves, ItemBlock.class, BlockLavaInfusedLeaves.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockLavaInfusedLog, ItemBlock.class, BlockLavaInfusedLog.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockLavaInfusedPlanks, ItemBlock.class, BlockLavaInfusedPlanks.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockLavaInfusedCraftingTable, ItemBlock.class, BlockLavaInfusedCraftingTable.getUnlocalizedName());
+		GameRegistry.registerBlock(BlockWaterInfusedCraftingTable, ItemBlock.class, BlockWaterInfusedCraftingTable.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockWaterInfusedLeaves, ItemBlock.class, BlockWaterInfusedLeaves.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockWaterInfusedLog, ItemBlock.class, BlockWaterInfusedLog.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockWaterInfusedPlanks, ItemBlock.class, BlockWaterInfusedPlanks.getUnlocalizedName());
 		GameRegistry.registerBlock(BlockSapling, ItemSapling.class, "sapling");
-		GameRegistry.registerBlock(BlockGrinder, ItemBlock.class, BlockGrinder.getUnlocalizedName());
+		GameRegistry.registerBlock(BlockGrinderIdle, ItemBlock.class, BlockGrinderIdle.getUnlocalizedName());
+		GameRegistry.registerBlock(BlockGrinderActive, ItemBlock.class, BlockGrinderActive.getUnlocalizedName());
+		GameRegistry.registerBlock(BlockWaterInfusedDoor, ItemBlock.class, BlockWaterInfusedDoor.getUnlocalizedName());
 	}
 	private static void items(){
 		GameRegistry.registerItem(ItemPebble,"Pebble");
@@ -155,6 +153,8 @@ public class Registry {
 		GameRegistry.registerItem(ItemParticleTester, "ParticleTester");
 		GameRegistry.registerItem(ItemCrystal, "Crystal");
 		GameRegistry.registerItem(ItemCrystalOre, "CrystalOre");
+		GameRegistry.registerItem(ItemFertilizer, "Fertilizer");
+		GameRegistry.registerItem(ItemWaterInfusedDoor, "WaterInfusedDoor");
 	}
 	private static void tiles(){
 		GameRegistry.registerTileEntity(TileEntityRockCrusher.class, "RockCrusher");

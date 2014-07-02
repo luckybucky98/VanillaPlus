@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.cricket.vanillaplus.blocks.BlockCrystalOre;
+import com.cricket.vanillaplus.blocks.nature.BlockCrystalOre;
 import com.cricket.vanillaplus.tiles.TileEntityCrystalOre;
 
 public class TileEntityCrystalClusterRenderer extends TileEntitySpecialRenderer{

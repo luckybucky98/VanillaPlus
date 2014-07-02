@@ -1,5 +1,7 @@
 package com.cricket.vanillaplus.blocks.decoration;
 
+import com.cricket.vanillaplus.creativetab.CreativeTab;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -11,7 +13,7 @@ public class BlockWaterInfusedPlanks extends Block{
 
 	public BlockWaterInfusedPlanks(Material material) {
 		super(material);
-		
+		this.setCreativeTab(CreativeTab.VP_DECORATION);
 		this.setHardness(2F);
 	}
 	

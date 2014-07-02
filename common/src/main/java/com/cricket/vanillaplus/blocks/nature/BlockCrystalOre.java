@@ -1,4 +1,4 @@
-package com.cricket.vanillaplus.blocks;
+package com.cricket.vanillaplus.blocks.nature;
 
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 import com.cricket.vanillaplus.Registry;
 import com.cricket.vanillaplus.client.ClientProxy;
-import com.cricket.vanillaplus.creativetab.CreativeTabMain;
+import com.cricket.vanillaplus.creativetab.CreativeTab;
 import com.cricket.vanillaplus.tiles.TileEntityCrystalOre;
 
 
@@ -31,7 +31,7 @@ public class BlockCrystalOre extends Block{
 		this.setHardness(2.5F);
 		this.setResistance(5F);
 		this.setStepSound(Block.soundTypeGlass);
-	    this.setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB);
+	    this.setCreativeTab(CreativeTab.VP_NATURE);
 	    this.setTickRandomly(true);
 	    this.setLightLevel(0.921F);
 	    this.setLightOpacity(1);

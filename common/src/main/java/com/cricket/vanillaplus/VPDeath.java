@@ -10,6 +10,6 @@ public class VPDeath {
 	}
 	
 	private static void addDeath(){
-		DamageSource grinder = new DamageSource("vanillaplus.grinder");
+		grinder = new DamageSource("vanillaplus.grinder");
 	}
 }

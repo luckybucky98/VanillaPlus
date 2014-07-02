@@ -11,10 +11,13 @@ tile.lavaInfusedPlanks.name=Lava Infused Planks
 tile.waterInfusedLog.name=Water Infused Log
 tile.waterInfusedLeaves.name=Water Infused Leaves
 tile.waterInfusedPlanks.name=Water Infused Planks
+tile.grinder.name=Grinder
 tile.compressor.name=Compressor
 item.pebble.name=Pebble
 item.compressedCoal.name=Compressed Coal
 item.compressedDiamond.name=Compressed Diamond
+item.crystalOre.name=Crystal Ore
+item.fertilizer.name=Fertilizer;
 container.rockCrusher=Rock Crusher
 
 itemGroup.VanillaPlus=VanillaPlus

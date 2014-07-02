@@ -8,7 +8,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.TempCategory;
 
 import com.cricket.vanillaplus.Registry;
-import com.cricket.vanillaplus.blocks.BlockCrystalOre;
+import com.cricket.vanillaplus.blocks.nature.BlockCrystalOre;
 import com.cricket.vanillaplus.worldgen.base.CaveBase;
 
 public class CrystalCave extends CaveBase{

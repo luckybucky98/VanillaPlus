@@ -6,12 +6,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemCrystal extends ItemMultiple{
+public class ItemCrystal extends Item{
 	
 	public static final String[] types = new String[] {"red", "orange", "yellow", "green", "blue", "purple"};
 	
 	public ItemCrystal(){
-		super(types);
+		super();
 		this.maxStackSize = 64;
 	}
 	

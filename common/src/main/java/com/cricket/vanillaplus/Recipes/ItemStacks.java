@@ -16,4 +16,6 @@ public class ItemStacks {
 	static ItemStack waterInfusedPlanksStack = new ItemStack(Registry.BlockWaterInfusedPlanks);
 	static ItemStack lavaInfusedLogStack = new ItemStack(Registry.BlockLavaInfusedLog);
 	static ItemStack lavaInfusedPlanksStack = new ItemStack(Registry.BlockLavaInfusedPlanks);
+	static ItemStack lavaTableStack = new ItemStack(Registry.BlockLavaInfusedCraftingTable);
+	static ItemStack waterTableStack = new ItemStack(Registry.BlockWaterInfusedCraftingTable);
 }

@@ -9,8 +9,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.cricket.vanillaplus.creativetab.CreativeTabMain;
-
+import com.cricket.vanillaplus.creativetab.CreativeTab;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -22,7 +21,7 @@ public class BlockSapling extends BlockBush implements IGrowable{
 	public BlockSapling(){
 		float f = 0.4F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
-		this.setCreativeTab(CreativeTabMain.VANILLAPLUS_TAB);
+		this.setCreativeTab(CreativeTab.VP_NATURE);
 	}
 	
 	public void updateTick(World world, int x, int y, int z, Random rand){

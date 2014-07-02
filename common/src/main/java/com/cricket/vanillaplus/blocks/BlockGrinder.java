@@ -33,7 +33,7 @@ public class BlockGrinder extends BlockContainer{
 	
 	@Override
 	public Item getItemDropped(int par1, Random rand, int par3){
-		return Item.getItemFromBlock(Registry.BlockGrinder);
+		return Item.getItemFromBlock(Registry.BlockGrinderIdle);
 	}
 	
 	@Override
