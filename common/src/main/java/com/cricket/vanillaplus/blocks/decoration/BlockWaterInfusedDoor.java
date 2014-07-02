@@ -90,7 +90,7 @@ public class BlockWaterInfusedDoor extends Block{
 		this.top[0] = icon.registerIcon(Reference.MODID + ":BlockWaterInfusedDoorTop");
 		this.bottom[0] = icon.registerIcon(Reference.MODID + ":BlockWaterInfusedDoorBottom");
 		this.top[1] = new IconFlipped(this.top[0], true, false);
-		this.bottom[1] = new IconFlipped(this.bottom[1], true, false);
+		this.bottom[1] = new IconFlipped(this.bottom[0], true, false);
 	}
 	
 	public boolean isOpaqueCube(){
